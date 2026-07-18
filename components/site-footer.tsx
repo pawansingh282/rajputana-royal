@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, Mail, MapPin, Instagram, Facebook, Youtube, Clock } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { navLinks, site } from '@/lib/site'
-import { OrnateDivider } from '@/components/ornament'
+import { OrnateDivider, InstagramIcon, FacebookIcon, YoutubeIcon } from '@/components/ornament'
 
 export function SiteFooter() {
   return (
@@ -23,13 +23,13 @@ export function SiteFooter() {
             </p>
             <div className="mt-5 flex gap-3">
               <a href={site.social.instagram} aria-label="Instagram" className="rounded-full border border-accent/40 p-2 text-accent transition-colors hover:bg-accent hover:text-accent-foreground">
-                <Instagram className="h-4 w-4" />
+                <InstagramIcon className="h-4 w-4" />
               </a>
               <a href={site.social.facebook} aria-label="Facebook" className="rounded-full border border-accent/40 p-2 text-accent transition-colors hover:bg-accent hover:text-accent-foreground">
-                <Facebook className="h-4 w-4" />
+                <FacebookIcon className="h-4 w-4" />
               </a>
               <a href={site.social.youtube} aria-label="YouTube" className="rounded-full border border-accent/40 p-2 text-accent transition-colors hover:bg-accent hover:text-accent-foreground">
-                <Youtube className="h-4 w-4" />
+                <YoutubeIcon className="h-4 w-4" />
               </a>
             </div>
           </div>
