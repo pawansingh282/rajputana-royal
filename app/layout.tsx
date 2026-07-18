@@ -1,36 +1,45 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { Playfair_Display, Mukta } from 'next/font/google'
 import './globals.css'
 
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-heading',
+  display: 'swap',
+})
+
+const mukta = Mukta({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-body',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Group of Infinity — Royal Car Rentals & Rajasthani Wedding Photography',
+  description:
+    'Group of Infinity (groupofinfinity.art) — Rajasthan ki shaan. Luxury & vintage car rentals aur heritage Rajasthani wedding photography. Padharo, aur apni shaadi ko royal banao.',
   generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+  keywords: [
+    'Rajasthan wedding photography',
+    'car rental Rajasthan',
+    'vintage wedding car',
+    'Rajput wedding photographer',
+    'Group of Infinity',
+    'luxury car rental',
+  ],
+  openGraph: {
+    title: 'Group of Infinity — Royal Car Rentals & Wedding Photography',
+    description:
+      'Luxury car rentals aur heritage Rajasthani wedding photography, ek hi chhat ke neeche.',
+    type: 'website',
   },
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
+  colorScheme: 'light',
+  themeColor: '#5a1a24',
 }
 
 export default function RootLayout({
@@ -39,8 +48,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
+    <html lang="en" className={`light ${playfair.variable} ${mukta.variable} bg-background`}>
+      <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
