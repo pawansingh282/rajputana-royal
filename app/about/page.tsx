@@ -24,9 +24,10 @@ import { WhatsAppFloat } from '@/components/whatsapp-float'
 import { SectionHeading } from '@/components/ornament'
 
 export const metadata: Metadata = {
-  title: 'About — Group of Infinity | Rajasthan Ki Apni Team',
+  title: 'About Our Jodhpur Car Rental & Photography Team',
   description:
-    'Group of Infinity ki kahani — ek Rajput parivaar jo car rental aur wedding photography ko dil se karta hai. Jodhpur se, poore Rajasthan ke liye.',
+    'Meet Group of Infinity, a Jodhpur-based team offering Swift car rentals and wedding photography services across Rajasthan.',
+  alternates: { canonical: '/about' },
 }
 
 const values = [

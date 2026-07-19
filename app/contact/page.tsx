@@ -19,9 +19,10 @@ import { ContactForm } from "@/components/contact-form"
 import { site } from "@/lib/site"
 
 export const metadata: Metadata = {
-  title: "Contact — Group of Infinity",
+  title: "Contact for Swift Rental & Wedding Photography",
   description:
-    "Book royal car rentals and Rajasthani wedding photography with Group of Infinity. Call, WhatsApp, or send an enquiry from Jodhpur, Rajasthan.",
+    "Contact Group of Infinity to book a Swift car rental, decorated wedding car or wedding photography service in Jodhpur and Rajasthan.",
+  alternates: { canonical: '/contact' },
 }
 
 const contactCards = [

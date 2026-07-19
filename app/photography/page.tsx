@@ -22,9 +22,11 @@ import { WhatsAppFloat } from '@/components/whatsapp-float'
 import { SectionHeading } from '@/components/ornament'
 
 export const metadata: Metadata = {
-  title: 'Wedding Photography — Group of Infinity | Rajasthani Wedding Photographer',
+  title: 'Wedding Photographer in Jodhpur & Rajasthan',
   description:
-    'Heritage Rajasthani wedding photography — candid, cinematic aur royal. Pre-wedding shoots, full-day coverage, films & albums. Book Group of Infinity for timeless memories.',
+    'Candid wedding photography, cinematic films and pre-wedding shoots in Jodhpur and across Rajasthan. View the Group of Infinity portfolio.',
+  alternates: { canonical: '/photography' },
+  openGraph: { url: '/photography', images: ['/photo-couple.png'] },
 }
 
 const services = [

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import type { Metadata } from 'next'
 import {
   Camera,
   Car,
@@ -22,6 +23,12 @@ import { SplitHero } from '@/components/home/split-hero'
 import { CtaBand } from '@/components/cta-band'
 import { WhatsAppFloat } from '@/components/whatsapp-float'
 import { SectionHeading, OrnateDivider } from '@/components/ornament'
+
+export const metadata: Metadata = {
+  title: 'Swift Car Rental & Wedding Photography in Rajasthan',
+  description: 'Book chauffeur-driven Swift cars, decorated wedding Swift rentals and candid wedding photography in Jodhpur and across Rajasthan.',
+  alternates: { canonical: '/' },
+}
 
 const stats = [
   { icon: Heart, value: '350+', label: 'Weddings Shot' },

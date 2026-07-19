@@ -26,9 +26,11 @@ import { WhatsAppFloat } from '@/components/whatsapp-float'
 import { SectionHeading } from '@/components/ornament'
 
 export const metadata: Metadata = {
-  title: 'Swift Car Rental — Group of Infinity | Rajasthan',
+  title: 'Swift Car Rental in Jodhpur & Rajasthan',
   description:
-    'Maruti Suzuki Swift car rental in Rajasthan for weddings, city rides and outstation trips. Chauffeur-driven and decorated options available.',
+    'Book chauffeur-driven Maruti Suzuki Swift cars in Jodhpur for weddings, city rides, airport transfers and Rajasthan outstation trips.',
+  alternates: { canonical: '/car-rental' },
+  openGraph: { url: '/car-rental', images: ['/swift-hero.png'] },
 }
 
 const cars = [
