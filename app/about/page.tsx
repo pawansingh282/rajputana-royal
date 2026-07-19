@@ -39,14 +39,14 @@ const values = [
 const timeline = [
   { year: '2016', title: 'Shuruaat', desc: 'Ek camera aur ek gaadi se safar shuru hua — Jodhpur ki galiyon se.' },
   { year: '2018', title: 'Pehli 50 Shaadiyan', desc: 'Word-of-mouth se pehchaan bani. Log naam se bulane lage.' },
-  { year: '2021', title: 'Fleet Badhi', desc: 'Vintage se luxury tak — 20+ gaadiyan fleet me shaamil.' },
+  { year: '2021', title: 'Car Service Badhi', desc: 'Swift rental service ko city, wedding aur outstation bookings tak badhaya.' },
   { year: '2023', title: 'Poora Rajasthan', desc: 'Udaipur, Jaipur, Jaisalmer — destination weddings shuru.' },
   { year: '2025', title: 'Group of Infinity', desc: 'Dono services ek brand ke neeche — groupofinfinity.art.' },
 ]
 
 const stats = [
   { icon: Heart, v: '350+', l: 'Weddings Captured' },
-  { icon: Car, v: '25+', l: 'Cars in Fleet' },
+  { icon: Car, v: 'Swift', l: 'Car Rental Fleet' },
   { icon: Users, v: '10k+', l: 'Happy Guests' },
   { icon: Award, v: '9 Yrs', l: 'Experience' },
 ]
@@ -62,7 +62,7 @@ const whyUs = [
 
 const team = [
   { name: 'Founder & Lead Photographer', role: 'The eye behind every royal frame', img: '/founder.png' },
-  { name: 'Fleet & Logistics', role: 'Cars ready, drivers on time', img: '/car-vintage.png' },
+  { name: 'Fleet & Logistics', role: 'Swift cars ready, drivers on time', img: '/swift-chauffeur.png' },
   { name: 'Cinematography Team', role: 'Filmy stories, frame by frame', img: '/photo-mandap.png' },
 ]
 

@@ -25,16 +25,16 @@ import { SectionHeading, OrnateDivider } from '@/components/ornament'
 
 const stats = [
   { icon: Heart, value: '350+', label: 'Weddings Shot' },
-  { icon: Car, value: '25+', label: 'Cars in Fleet' },
+  { icon: Car, value: 'Swift', label: 'Our Car Fleet' },
   { icon: Users, value: '10k+', label: 'Happy Guests' },
   { icon: Award, value: '9 Yrs', label: 'Of Experience' },
 ]
 
 const fleet = [
-  { name: 'Vintage Classic', img: '/car-vintage.png', tag: 'Baraat Special', price: '₹12,000/day' },
-  { name: 'Luxury Sedan', img: '/car-luxury-sedan.png', tag: 'Chauffeur Driven', price: '₹8,000/day' },
-  { name: 'Premium SUV', img: '/car-suv.png', tag: 'Family & Outstation', price: '₹6,500/day' },
-  { name: 'Decorated Wedding Car', img: '/car-decorated.png', tag: 'Fully Decorated', price: '₹15,000/day' },
+  { name: 'Swift City Ride', img: '/swift-city.png', tag: 'Clean & Comfortable', price: 'Custom quote' },
+  { name: 'Swift Chauffeur Ride', img: '/swift-chauffeur.png', tag: 'Chauffeur Driven', price: 'Custom quote' },
+  { name: 'Swift Outstation', img: '/swift-outstation.png', tag: 'Family & Outstation', price: 'Custom quote' },
+  { name: 'Decorated Wedding Swift', img: '/swift-wedding.png', tag: 'Wedding Ready', price: 'Custom quote' },
 ]
 
 const gallery = [
@@ -65,7 +65,7 @@ const packages = [
     name: 'Baraat Ride',
     price: '₹15,000',
     unit: 'onwards',
-    points: ['Decorated vintage/luxury car', 'Uniformed chauffeur', 'Fuel within city', '4 hours booking'],
+    points: ['Decorated Swift car', 'Uniformed chauffeur', 'Fuel within city', '4 hours booking'],
     popular: false,
   },
   {
@@ -86,7 +86,7 @@ const packages = [
 
 const testimonials = [
   { name: 'Priya & Vikram', place: 'Udaipur', text: 'Camera bhi unka, gaadi bhi unki — poori shaadi tension-free rahi. Photos to filmy lagti hain!' },
-  { name: 'Rathore Family', place: 'Jodhpur', text: 'Vintage car dekhkar mehmaan dang reh gaye. Time ke pakke aur bilkul professional.' },
+  { name: 'Rathore Family', place: 'Jodhpur', text: 'Swift bilkul saaf aur time par thi. Service professional aur safar comfortable raha.' },
   { name: 'Aditi & Sameer', place: 'Jaipur', text: 'Pre-wedding shoot desert me karvaya — har frame ek painting jaisa. Highly recommended.' },
 ]
 
@@ -125,12 +125,12 @@ export default function HomePage() {
         />
         <div className="mt-14 grid gap-8 md:grid-cols-2">
           <Link href="/car-rental" className="group relative overflow-hidden rounded-2xl">
-            <Image src="/hero-car.png" alt="Wedding car rental" width={800} height={500} className="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <Image src="/swift-hero.png" alt="Maruti Suzuki Swift car rental" width={800} height={500} className="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-maroon-dark to-transparent" />
             <div className="absolute bottom-0 p-8">
               <Car className="h-8 w-8 text-accent" />
               <h3 className="mt-3 font-serif text-2xl font-bold text-cream">Car Rental</h3>
-              <p className="mt-1 text-cream/80">Vintage · Luxury · SUV</p>
+              <p className="mt-1 text-cream/80">Swift · Chauffeur · Outstation</p>
               <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent">Explore Fleet <ArrowRight className="h-4 w-4" /></span>
             </div>
           </Link>

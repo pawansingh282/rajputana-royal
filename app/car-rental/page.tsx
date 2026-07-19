@@ -26,48 +26,48 @@ import { WhatsAppFloat } from '@/components/whatsapp-float'
 import { SectionHeading } from '@/components/ornament'
 
 export const metadata: Metadata = {
-  title: 'Car Rental — Group of Infinity | Vintage, Luxury & SUV in Rajasthan',
+  title: 'Swift Car Rental — Group of Infinity | Rajasthan',
   description:
-    'Royal car rental in Rajasthan — vintage baraat cars, luxury sedans, premium SUVs. Decorated wedding cars, chauffeur-driven, outstation trips. Book with Group of Infinity.',
+    'Maruti Suzuki Swift car rental in Rajasthan for weddings, city rides and outstation trips. Chauffeur-driven and decorated options available.',
 }
 
 const cars = [
   {
-    name: 'Vintage Classic',
-    img: '/car-vintage.png',
-    tag: 'Baraat Special',
-    price: '₹12,000',
-    seats: '4',
+    name: 'Swift City Ride',
+    img: '/swift-city.png',
+    tag: 'Clean & Comfortable',
+    price: 'Custom quote',
+    seats: '5',
     fuel: 'Petrol',
     ac: true,
-    desc: 'Ivory heritage beauty — dulhe ki entry ho toh aisi. Photos me chaar-chaand.',
+    desc: 'City pickup, local events aur everyday travel ke liye clean, comfortable Swift.',
   },
   {
-    name: 'Luxury Sedan',
-    img: '/car-luxury-sedan.png',
+    name: 'Swift Chauffeur Ride',
+    img: '/swift-chauffeur.png',
     tag: 'Chauffeur Driven',
-    price: '₹8,000',
-    seats: '4',
-    fuel: 'Diesel',
+    price: 'Custom quote',
+    seats: '5',
+    fuel: 'Petrol',
     ac: true,
-    desc: 'Mercedes-class comfort — VIP mehmaan aur bride-groom ke liye perfect.',
+    desc: 'Experienced chauffeur ke saath airport pickup, guest travel aur event movement.',
   },
   {
-    name: 'Premium SUV',
-    img: '/car-suv.png',
+    name: 'Swift Outstation',
+    img: '/swift-outstation.png',
     tag: 'Family & Outstation',
-    price: '₹6,500',
-    seats: '7',
-    fuel: 'Diesel',
+    price: 'Custom quote',
+    seats: '5',
+    fuel: 'Petrol',
     ac: true,
-    desc: 'Fortuner-class dabang ride — bade parivaar aur lambe safar ke liye.',
+    desc: 'Rajasthan ke outstation trips ke liye economical aur comfortable Swift ride.',
   },
   {
-    name: 'Decorated Wedding Car',
-    img: '/car-decorated.png',
-    tag: 'Fully Decorated',
-    price: '₹15,000',
-    seats: '4',
+    name: 'Decorated Wedding Swift',
+    img: '/swift-wedding.png',
+    tag: 'Wedding Ready',
+    price: 'Custom quote',
+    seats: '5',
     fuel: 'Petrol',
     ac: true,
     desc: 'Taaza phoolon se saji gaadi — bidaai ho ya baraat, yaadgaar ban jaaye.',
@@ -116,17 +116,17 @@ export default function CarRentalPage() {
     <main className="bg-background">
       <SiteHeader />
       <PageHero
-        image="/hero-car.png"
+        image="/swift-hero.png"
         eyebrow="Car Rental"
-        title="Royal Rides for Every Occasion"
-        description="Vintage baraat cars se lekar luxury sedans aur SUVs tak — Rajasthan me shaan se chalne ka naam Group of Infinity."
+        title="Swift Rides for Every Occasion"
+        description="City ride, wedding ya outstation safar — hamari Swift cars clean, comfortable aur chauffeur ke saath ready hain."
       />
 
       {/* Quick highlights */}
       <section className="bg-maroon">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-10 sm:px-6 lg:grid-cols-4 lg:px-8">
           {[
-            { icon: Car, t: '25+ Cars' },
+            { icon: Car, t: 'Swift Fleet' },
             { icon: BadgeCheck, t: 'Verified Drivers' },
             { icon: ShieldCheck, t: 'Fully Insured' },
             { icon: Clock, t: 'On-Time Promise' },
@@ -193,7 +193,7 @@ export default function CarRentalPage() {
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div className="relative overflow-hidden rounded-2xl">
-            <Image src="/car-decorated.png" alt="Decorated wedding car" width={800} height={600} className="h-full w-full object-cover" />
+            <Image src="/swift-wedding.png" alt="Decorated Maruti Suzuki Swift wedding car" width={800} height={600} className="h-full w-full object-cover" />
           </div>
           <div>
             <SectionHeading align="left" eyebrow="Included" title="Booking Me Kya Kya Milta Hai" description="Koi chhupa hua charge nahi — jo dikhta hai, wahi milta hai." />
@@ -259,7 +259,7 @@ export default function CarRentalPage() {
           ))}
         </div>
         <blockquote className="mt-6 text-balance font-serif text-2xl font-medium leading-relaxed text-foreground sm:text-3xl">
-          &ldquo;Vintage car dekhkar poori baraat ruk gayi thi. Time ke bilkul pakke — recommended!&rdquo;
+          &ldquo;Swift bilkul saaf aur time par pahunchi. Driver professional tha aur booking bahut aasaan rahi.&rdquo;
         </blockquote>
         <p className="mt-4 text-muted-foreground">— Rathore Family, Jodhpur</p>
       </section>

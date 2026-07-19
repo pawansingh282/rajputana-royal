@@ -19,20 +19,20 @@ const mukta = Mukta({
 export const metadata: Metadata = {
   title: 'Group of Infinity — Royal Car Rentals & Rajasthani Wedding Photography',
   description:
-    'Group of Infinity (groupofinfinity.art) — Rajasthan ki shaan. Luxury & vintage car rentals aur heritage Rajasthani wedding photography. Padharo, aur apni shaadi ko royal banao.',
+    'Group of Infinity (groupofinfinity.art) — Rajasthan me Swift car rentals aur heritage Rajasthani wedding photography. City ride, wedding aur outstation booking ke liye sampark karein.',
   generator: 'v0.app',
   keywords: [
     'Rajasthan wedding photography',
     'car rental Rajasthan',
-    'vintage wedding car',
+    'Swift wedding car',
     'Rajput wedding photographer',
     'Group of Infinity',
-    'luxury car rental',
+    'Swift car rental',
   ],
   openGraph: {
     title: 'Group of Infinity — Royal Car Rentals & Wedding Photography',
     description:
-      'Luxury car rentals aur heritage Rajasthani wedding photography, ek hi chhat ke neeche.',
+      'Swift car rentals aur heritage Rajasthani wedding photography, ek hi chhat ke neeche.',
     type: 'website',
   },
 }

@@ -50,8 +50,8 @@ export function SiteFooter() {
           <div>
             <h3 className="font-serif text-lg font-semibold text-accent">Services</h3>
             <ul className="mt-4 space-y-3 text-sm text-cream/75">
-              <li>Vintage Wedding Cars</li>
-              <li>Luxury Sedan & SUV Rental</li>
+              <li>Swift Wedding Cars</li>
+              <li>Swift City Rental</li>
               <li>Outstation Trips</li>
               <li>Candid Wedding Photography</li>
               <li>Pre-Wedding Shoots</li>

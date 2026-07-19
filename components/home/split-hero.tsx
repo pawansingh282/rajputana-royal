@@ -42,8 +42,8 @@ export function SplitHero() {
         {/* Car Rental half */}
         <div className="group relative flex items-end overflow-hidden">
           <Image
-            src="/hero-car.png"
-            alt="Luxury vintage wedding car outside a Rajasthani palace"
+            src="/swift-hero.png"
+            alt="White Maruti Suzuki Swift outside a Rajasthani heritage venue"
             fill
             priority
             className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -55,11 +55,11 @@ export function SplitHero() {
               Car Rental
             </span>
             <h2 className="mt-5 max-w-md text-balance font-serif text-3xl font-bold leading-tight text-cream sm:text-4xl lg:text-5xl">
-              Royal Rides for Every Occasion
+              Swift Rides for Every Occasion
             </h2>
             <p className="mt-4 max-w-sm text-pretty leading-relaxed text-cream/85">
-              Vintage baraat cars, luxury sedans aur SUVs — shaadi ho ya safar, shaan ke saath
-              chaliye.
+              Hamari Swift cars — shaadi, city ride ya outstation safar ke liye saaf,
+              comfortable aur ready.
             </p>
             <Link
               href="/car-rental"
