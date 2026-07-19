@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next'
 const siteUrl = 'https://groupofinfinity.art'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ['', '/car-rental', '/photography', '/about', '/contact']
+  const routes = ['', '/car-rental', '/photography', '/about', '/contact', '/privacy-policy', '/terms-and-conditions', '/cancellation-refund-policy']
 
   return routes.map((route, index) => ({
     url: `${siteUrl}${route}`,

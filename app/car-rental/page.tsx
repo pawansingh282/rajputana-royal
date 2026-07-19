@@ -9,7 +9,6 @@ import {
   Snowflake,
   ShieldCheck,
   Check,
-  Star,
   MapPin,
   Sparkles,
   BadgeCheck,
@@ -24,6 +23,7 @@ import { PageHero } from '@/components/page-hero'
 import { CtaBand } from '@/components/cta-band'
 import { WhatsAppFloat } from '@/components/whatsapp-float'
 import { SectionHeading } from '@/components/ornament'
+import { ReviewSlider } from '@/components/review-slider'
 
 export const metadata: Metadata = {
   title: 'Swift Car Rental in Jodhpur & Rajasthan',
@@ -104,6 +104,12 @@ const addons = [
   { icon: MapPin, title: 'Extra Kilometers', price: '₹18/km' },
   { icon: Clock, title: 'Extra Hours', price: '₹800/hr' },
   { icon: Users, title: 'Additional Car', price: 'On request' },
+]
+
+const rentalReviews = [
+  { name: 'Rathore Family', place: 'Jodhpur', text: 'Swift bilkul saaf aur time par pahunchi. Driver professional tha aur booking bahut aasaan rahi.' },
+  { name: 'Neha Sharma', place: 'Jaipur', text: 'Airport pickup se outstation drop tak ride comfortable rahi. Driver ne route aur timing dono achhe se manage kiye.' },
+  { name: 'Aman & Family', place: 'Udaipur', text: 'Wedding ke liye decorated Swift li thi. Car presentation clean thi aur team coordination me responsive rahi.' },
 ]
 
 const faqs = [
@@ -253,17 +259,10 @@ export default function CarRentalPage() {
         </div>
       </section>
 
-      {/* Testimonial strip */}
-      <section className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
-        <div className="flex justify-center gap-1">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Star key={i} className="h-6 w-6 fill-accent text-accent" />
-          ))}
-        </div>
-        <blockquote className="mt-6 text-balance font-serif text-2xl font-medium leading-relaxed text-foreground sm:text-3xl">
-          &ldquo;Swift bilkul saaf aur time par pahunchi. Driver professional tha aur booking bahut aasaan rahi.&rdquo;
-        </blockquote>
-        <p className="mt-4 text-muted-foreground">— Rathore Family, Jodhpur</p>
+      {/* Car rental reviews */}
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <SectionHeading eyebrow="Rental Reviews" title="Swift Rental Experiences" description="Demo reviews — asli customer feedback milne ke baad yahan update karein." />
+        <ReviewSlider reviews={rentalReviews} label="Car rental customer reviews" />
       </section>
 
       {/* FAQ */}

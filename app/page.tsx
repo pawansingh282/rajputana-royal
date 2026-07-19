@@ -97,6 +97,15 @@ const testimonials = [
   { name: 'Aditi & Sameer', place: 'Jaipur', text: 'Pre-wedding shoot desert me karvaya — har frame ek painting jaisa. Highly recommended.' },
 ]
 
+const trustDetails = [
+  { icon: Star, title: 'Separate Customer Reviews', desc: 'Car rental aur photography feedback unke respective service pages par alag dikhaya gaya hai.' },
+  { icon: Camera, title: 'Booking Photo Gallery', desc: 'Abhi sample photos hain; baad me actual delivery, decoration aur event photos se replace karein.' },
+  { icon: ShieldCheck, title: 'Driver Verification', desc: 'Sample policy: booking se pehle assigned driver ki identity aur licence verification complete ki jayegi.' },
+  { icon: Sparkles, title: 'Clean & Maintained Cars', desc: 'Sample policy: har booking se pehle Swift ki cleaning, basic safety aur maintenance check hoga.' },
+  { icon: Clock, title: 'Cancellation Policy', desc: 'Sample terms: cancellation aur refund booking date aur notice period ke hisaab se confirm honge.' },
+  { icon: Check, title: 'Payment & Advance', desc: 'Sample terms: date reserve karne ke liye advance; final amount aur due date written quote me rahenge.' },
+]
+
 const faqs = [
   { q: 'Kya aap car aur photography dono ek saath book kar sakte hain?', a: 'Bilkul! Yahi hamari khaasiyat hai. Dono services ka combined package aapko behtar rate par milta hai.' },
   { q: 'Kaunse sheher me service available hai?', a: 'Jodhpur base hai, lekin poore Rajasthan — Udaipur, Jaipur, Jaisalmer — me travel karte hain.' },
@@ -261,12 +270,55 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Trust and booking information */}
+      <section className="bg-secondary/60">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <SectionHeading eyebrow="Trust & Transparency" title="Booking Se Pehle Sab Clear" description="Neeche demo information hai. Actual policies, documents aur booking photos milne ke baad update karein." />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {trustDetails.map((item) => (
+              <div key={item.title} className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+                <div className="flex items-start justify-between gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <item.icon className="h-5 w-5" />
+                  </span>
+                  <span className="rounded-full bg-secondary px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Sample</span>
+                </div>
+                <h3 className="mt-5 font-serif text-xl font-bold text-foreground">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
+            <figure className="overflow-hidden rounded-2xl border border-border bg-card">
+              <div className="relative h-64">
+                <Image src="/swift-wedding.png" alt="Sample decorated Swift booking" fill className="object-cover" />
+              </div>
+              <figcaption className="flex items-center justify-between gap-3 p-5 text-sm">
+                <span className="font-semibold text-foreground">Car Rental Booking Photo</span>
+                <span className="text-muted-foreground">Sample</span>
+              </figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-2xl border border-border bg-card">
+              <div className="relative h-64">
+                <Image src="/photo-couple.png" alt="Sample wedding photography booking" fill className="object-cover" />
+              </div>
+              <figcaption className="flex items-center justify-between gap-3 p-5 text-sm">
+                <span className="font-semibold text-foreground">Photography Booking Photo</span>
+                <span className="text-muted-foreground">Sample</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <SectionHeading eyebrow="Love Notes" title="Hamare Parivaar Kya Kehte Hain" />
+        <SectionHeading eyebrow="Love Notes" title="Hamare Parivaar Kya Kehte Hain" description="Sample reviews — real customer feedback milne ke baad update karein." />
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {testimonials.map((t) => (
             <figure key={t.name} className="rounded-2xl border border-border bg-card p-8">
+              <span className="float-right rounded-full bg-secondary px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Sample</span>
               <Quote className="h-8 w-8 text-accent" />
               <div className="mt-3 flex gap-1">
                 {Array.from({ length: 5 }).map((_, i) => (

@@ -86,7 +86,11 @@ export function SiteFooter() {
       <div className="border-t border-accent/20">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs text-cream/60 sm:flex-row sm:px-6 lg:px-8">
           <p>© {new Date().getFullYear()} {site.name} · {site.domain}. All rights reserved.</p>
-          <p>Made with dil in {site.city}.</p>
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
+            <Link href="/privacy-policy" className="transition-colors hover:text-accent">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className="transition-colors hover:text-accent">Terms & Conditions</Link>
+            <Link href="/cancellation-refund-policy" className="transition-colors hover:text-accent">Cancellation & Refund</Link>
+          </div>
         </div>
       </div>
     </footer>

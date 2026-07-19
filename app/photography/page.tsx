@@ -12,7 +12,6 @@ import {
   Album,
   Sparkles,
   MapPin,
-  Quote,
 } from 'lucide-react'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
@@ -20,6 +19,7 @@ import { PageHero } from '@/components/page-hero'
 import { CtaBand } from '@/components/cta-band'
 import { WhatsAppFloat } from '@/components/whatsapp-float'
 import { SectionHeading } from '@/components/ornament'
+import { ReviewSlider } from '@/components/review-slider'
 
 export const metadata: Metadata = {
   title: 'Wedding Photographer in Jodhpur & Rajasthan',
@@ -227,26 +227,10 @@ export default function PhotographyPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Photography reviews */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <SectionHeading eyebrow="Happy Couples" title="Pyaar Bhare Alfaaz" />
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {testimonials.map((t) => (
-            <figure key={t.name} className="rounded-2xl border border-border bg-card p-8">
-              <Quote className="h-8 w-8 text-accent" />
-              <div className="mt-3 flex gap-1">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-accent text-accent" />
-                ))}
-              </div>
-              <blockquote className="mt-4 text-pretty leading-relaxed text-foreground">{t.text}</blockquote>
-              <figcaption className="mt-5 text-sm">
-                <span className="font-semibold text-foreground">{t.name}</span>
-                <span className="text-muted-foreground"> · {t.place}</span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+        <SectionHeading eyebrow="Photography Reviews" title="Pyaar Bhare Alfaaz" description="Demo reviews — verified couple feedback milne ke baad yahan update karein." />
+        <ReviewSlider reviews={testimonials} label="Wedding photography customer reviews" />
       </section>
 
       {/* Combo */}
