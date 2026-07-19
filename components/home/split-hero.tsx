@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Camera, Car, ArrowRight } from 'lucide-react'
-import { site } from '@/lib/site'
 
 export function SplitHero() {
   return (
@@ -69,17 +68,6 @@ export function SplitHero() {
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-        </div>
-      </div>
-
-      {/* Center brand emblem */}
-      <div className="pointer-events-none absolute left-1/2 top-8 z-20 -translate-x-1/2 text-center md:top-1/2 md:-translate-y-1/2">
-        <div className="pointer-events-auto mx-auto flex flex-col items-center rounded-2xl border border-accent/40 bg-maroon-dark/70 px-6 py-5 backdrop-blur-md">
-          <span className="relative h-16 w-16 overflow-hidden rounded-full ring-2 ring-accent/60">
-            <Image src="/logo.png" alt="Group of Infinity logo" fill className="object-cover" />
-          </span>
-          <p className="mt-3 font-serif text-xl font-bold text-cream">Group of Infinity</p>
-          <p className="text-[11px] uppercase tracking-[0.3em] text-accent">{site.domain}</p>
         </div>
       </div>
     </section>

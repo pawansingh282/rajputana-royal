@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Mukta } from 'next/font/google'
+import { SitePreloader } from '@/components/site-preloader'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -50,6 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`light ${playfair.variable} ${mukta.variable} bg-background`}>
       <body className="font-sans antialiased">
+        <SitePreloader />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
