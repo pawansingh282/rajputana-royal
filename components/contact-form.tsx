@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { OrnateDivider } from "@/components/ornament"
+import { site } from "@/lib/site"
 
 const services = [
   "Wedding Photography",
@@ -17,7 +18,31 @@ export function ContactForm() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    const form = new FormData(e.currentTarget)
+    const name = String(form.get('name') || '')
+    const phone = String(form.get('phone') || '')
+    const email = String(form.get('email') || 'Not provided')
+    const date = String(form.get('date') || 'Not provided')
+    const service = String(form.get('service') || '')
+    const message = String(form.get('message') || 'No additional message')
+
+    const whatsappMessage = [
+      '*New Website Enquiry*',
+      '',
+      `*Name:* ${name}`,
+      `*Phone:* ${phone}`,
+      `*Email:* ${email}`,
+      `*Event Date:* ${date}`,
+      `*Service:* ${service}`,
+      `*Message:* ${message}`,
+      '',
+      'Sent from groupofinfinity.art',
+    ].join('\n')
+
+    const whatsappNumber = site.whatsapp.replace(/[^0-9]/g, '')
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
     setSent(true)
+    window.location.href = whatsappUrl
   }
 
   if (sent) {
@@ -26,8 +51,7 @@ export function ContactForm() {
         <OrnateDivider className="mb-6" />
         <h3 className="font-serif text-2xl text-primary">Dhanyavaad!</h3>
         <p className="mt-3 text-muted-foreground leading-relaxed">
-          Aapka enquiry mil gaya hai. Hamari team 24 ghante ke andar aapse sampark karegi.
-          Turant baat karne ke liye WhatsApp par message karein.
+          WhatsApp khul gaya hai. Kripya wahan Send button dabakar enquiry complete karein.
         </p>
         <button
           onClick={() => setSent(false)}
@@ -123,10 +147,10 @@ export function ContactForm() {
         type="submit"
         className="mt-6 w-full rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
       >
-        Send Enquiry
+        Send Enquiry on WhatsApp
       </button>
       <p className="mt-3 text-center text-xs text-muted-foreground">
-        We reply within 24 hours. Aapki details safe rehti hain.
+        Submit karne par WhatsApp khulega. Message bhejne ke liye wahan Send dabayein.
       </p>
     </form>
   )
