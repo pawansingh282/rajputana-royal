@@ -1,0 +1,29 @@
+# Group of Infinity
+
+> Group of Infinity is a Jodhpur-based service for chauffeur-driven Maruti Suzuki Swift car rentals and Rajasthani wedding photography across Rajasthan, India.
+
+The business offers Swift cars for city travel, airport transfers, outstation trips and decorated wedding transport. Photography services include candid wedding photography, cinematic films, traditional ceremony coverage and pre-wedding shoots. Pricing is provided through a custom quote after the customer shares their date, location and requirements.
+
+## Main Pages
+
+- [Home](https://groupofinfinity.art/): Overview of Swift rentals, wedding photography and combined packages.
+- [Swift Car Rental](https://groupofinfinity.art/car-rental): Swift city rides, chauffeur service, outstation travel and decorated wedding cars.
+- [Wedding Photography](https://groupofinfinity.art/photography): Photography services, portfolio, packages and frequently asked questions.
+- [About](https://groupofinfinity.art/about): Information about the Group of Infinity team and service area.
+- [Contact](https://groupofinfinity.art/contact): Booking enquiry and contact options.
+
+## Service Area
+
+- Jodhpur, Rajasthan
+- Services are available across Rajasthan, including Jaipur, Udaipur, Jaisalmer, Bikaner, Ajmer, Pushkar and Mount Abu.
+
+## Machine-Readable Resources
+
+- [Sitemap](https://groupofinfinity.art/sitemap.xml): List of indexable site pages.
+- [Robots](https://groupofinfinity.art/robots.txt): Crawler access rules.
+
+## Important Notes
+
+- The current rental fleet consists of Maruti Suzuki Swift cars.
+- Rental pricing depends on the route, duration, date and decoration requirements.
+- Customers should use the official contact page to confirm availability and receive a quote.
