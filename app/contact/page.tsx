@@ -14,6 +14,9 @@ import {
   Star,
 } from "lucide-react"
 import { PageHero } from "@/components/page-hero"
+import { SiteHeader } from "@/components/site-header"
+import { SiteFooter } from "@/components/site-footer"
+import { WhatsAppFloat } from "@/components/whatsapp-float"
 import { SectionHeading, OrnateDivider, InstagramIcon, FacebookIcon, YoutubeIcon } from "@/components/ornament"
 import { ContactForm } from "@/components/contact-form"
 import { site } from "@/lib/site"
@@ -103,6 +106,7 @@ const promises = [
 export default function ContactPage() {
   return (
     <>
+      <SiteHeader />
       <PageHero
         image="/palace-bg.png"
         eyebrow="Padharo Sa"
@@ -376,6 +380,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      <SiteFooter />
+      <WhatsAppFloat />
     </>
   )
 }
