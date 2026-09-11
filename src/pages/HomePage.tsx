@@ -142,15 +142,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </p>
                 </div>
 
-                {/* Preview Image: Canon DSLR Camera */}
-                <div className="relative aspect-[16/10] rounded-xl overflow-hidden border border-white/10 my-4">
-                  <img
-                    src="/images/card_camera_dslr.jpg"
-                    alt="Infinity Production House DSLR Camera"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
               </div>
 
               <div className="pt-4">
