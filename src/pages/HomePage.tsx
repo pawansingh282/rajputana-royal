@@ -25,10 +25,10 @@ export const HomePage: React.FC<HomePageProps> = ({
   onNavigate,
 }) => {
   return (
-    <div className="pt-20 pb-20 space-y-20 bg-black text-white">
+    <div className="pb-20 space-y-20 bg-[#07080b] text-white">
       
-      {/* 1. HERO BANNER + EXPERIENCE CARDS (MATCHING USER MOCKUP EXACTLY) */}
-      <section className="relative min-h-[92vh] flex flex-col justify-between pt-20 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* 1. HERO BANNER + EXPERIENCE CARDS */}
+      <section className="relative min-h-[920px] flex flex-col justify-between pt-28 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background Image: Sunset mountain road with Innova Crysta on left & Photographer on right */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
@@ -93,6 +93,9 @@ export const HomePage: React.FC<HomePageProps> = ({
             {/* Card 1: INFINITY TRAVELS */}
             <div className="rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1.5 bg-[#0c0d12]/85 backdrop-blur-md border border-[#c9974c]/30 hover:border-[#c9974c] shadow-[0_16px_40px_rgba(0,0,0,0.8)]">
               <div className="space-y-4">
+                <div className="flex justify-center pt-1">
+                  <div className="h-16 w-16 rounded-full border border-[#d4af37] flex items-center justify-center text-[#d4af37]"><Luggage className="h-7 w-7" strokeWidth={1.4} /></div>
+                </div>
                 <div className="text-center space-y-1 pt-2">
                   <h3 className="text-lg sm:text-xl font-bold tracking-wider text-white">
                     INFINITY
@@ -130,6 +133,9 @@ export const HomePage: React.FC<HomePageProps> = ({
             {/* Card 2: INFINITY PRODUCTION HOUSE */}
             <div className="rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1.5 bg-[#0c0d12]/85 backdrop-blur-md border border-[#c9974c]/30 hover:border-[#c9974c] shadow-[0_16px_40px_rgba(0,0,0,0.8)]">
               <div className="space-y-4">
+                <div className="flex justify-center pt-1">
+                  <div className="h-16 w-16 rounded-full border border-[#d4af37] flex items-center justify-center text-[#d4af37]"><Camera className="h-7 w-7" strokeWidth={1.4} /></div>
+                </div>
                 <div className="text-center space-y-1 pt-2">
                   <h3 className="text-lg sm:text-xl font-bold tracking-wider text-white">
                     INFINITY
@@ -167,6 +173,9 @@ export const HomePage: React.FC<HomePageProps> = ({
             {/* Card 3: INFINITY FRAMING */}
             <div className="rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1.5 bg-[#0c0d12]/85 backdrop-blur-md border border-[#c9974c]/30 hover:border-[#c9974c] shadow-[0_16px_40px_rgba(0,0,0,0.8)]">
               <div className="space-y-4">
+                <div className="flex justify-center pt-1">
+                  <div className="h-16 w-16 rounded-full border border-[#d4af37] flex items-center justify-center text-[#d4af37]"><ImageIcon className="h-7 w-7" strokeWidth={1.4} /></div>
+                </div>
                 <div className="text-center space-y-1 pt-2">
                   <h3 className="text-lg sm:text-xl font-bold tracking-wider text-white">
                     INFINITY
