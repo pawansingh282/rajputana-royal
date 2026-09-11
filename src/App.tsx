@@ -8,7 +8,7 @@ import { PackageDetailModal } from './components/PackageDetailModal';
 import { HomePage } from './pages/HomePage';
 import { PhotographyPage } from './pages/PhotographyPage';
 import { TravelsPage } from './pages/TravelsPage';
-import { FramingPage } from './pages/FramingPage';
+import { FarmingPage } from './pages/FarmingPage';
 import { AboutPage } from './pages/AboutPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { ContactPage } from './pages/ContactPage';
@@ -94,9 +94,9 @@ export default function App() {
           />
         )}
 
-        {currentPage === 'framing' && (
-          <FramingPage
-            onOpenBooking={() => handleOpenBooking('photography', 'Infinity Custom Framing Order')}
+        {(currentPage === 'farming' || currentPage === 'framing') && (
+          <FarmingPage
+            onOpenBooking={() => handleOpenBooking('travel', 'Infinity Farming Inquiry')}
           />
         )}
 
