@@ -282,14 +282,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenB
           </button>
         </nav>
 
-        <button
-          onClick={() => onOpenBooking()}
-          className="hidden lg:flex items-center gap-3 rounded-md border border-[#d4af37]/80 px-5 py-3 text-xs font-semibold uppercase tracking-widest text-[#f3e5ab] transition-colors hover:bg-[#d4af37] hover:text-black"
-        >
-          <span>BOOK NOW</span>
-          <Calendar className="h-4 w-4" />
-        </button>
-
         {/* Mobile Hamburger Button */}
         <div className="flex items-center gap-2 lg:hidden">
           <button
