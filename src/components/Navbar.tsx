@@ -241,20 +241,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenB
             </div>
           </div>
 
-          {/* FRAMING (COMING SOON) */}
+          {/* FARMING */}
           <button
-            id="nav-link-framing"
-            onClick={() => handleNavClick('framing')}
-            className={`px-3 py-2 rounded-md tracking-wider uppercase text-xs transition-colors flex items-center gap-1.5 ${
-              currentPage === 'framing'
+            id="nav-link-farming"
+            onClick={() => handleNavClick('farming')}
+            className={`px-3 py-2 rounded-md tracking-wider uppercase text-xs transition-colors ${
+              currentPage === 'farming' || currentPage === 'framing'
                 ? 'text-[#f3e5ab] font-bold border-b-2 border-[#d4af37]'
                 : 'text-neutral-300 hover:text-[#d4af37]'
             }`}
           >
-            FRAMING
-            <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#d4af37]/20 text-[#d4af37] border border-[#d4af37]/30 tracking-normal font-mono">
-              SOON
-            </span>
+            FARMING
           </button>
 
           <button
@@ -349,11 +346,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenB
           </div>
 
           <button
-            onClick={() => handleNavClick('framing')}
-            className="flex items-center justify-between w-full text-left py-2 text-sm uppercase tracking-wider text-neutral-200 font-semibold border-b border-neutral-800"
+            onClick={() => handleNavClick('farming')}
+            className="block w-full text-left py-2 text-sm uppercase tracking-wider text-neutral-200 font-semibold border-b border-neutral-800 hover:text-[#d4af37] transition-colors"
           >
-            <span>Infinity Framing</span>
-            <span className="text-[10px] px-2 py-0.5 rounded bg-[#d4af37]/20 text-[#d4af37]">Coming Soon</span>
+            Infinity Farming
           </button>
 
           <button

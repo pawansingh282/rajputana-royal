@@ -90,4 +90,4 @@ export interface FramingProductTeaser {
   features: string[];
 }
 
-export type PageId = 'home' | 'photography' | 'travels' | 'framing' | 'about' | 'gallery' | 'contact';
+export type PageId = 'home' | 'photography' | 'travels' | 'farming' | 'framing' | 'about' | 'gallery' | 'contact';
