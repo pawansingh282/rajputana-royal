@@ -1,7 +1,10 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import type { PageId } from '../types';
+
+gsap.registerPlugin(ScrollTrigger);
 
 type Props = { page: PageId };
 
@@ -44,6 +47,18 @@ export function ThreePageAnimation({ page }: Props) {
     const drift = { x: 0, y: 0, rotation: 0, opacity: 0.48 };
     const target = { x: 0, y: 0 };
     const enter = gsap.timeline().fromTo(canvas, { opacity: 0 }, { opacity: 1, duration: 1.2, ease: 'power2.out' });
+    const revealContext = gsap.context(() => {
+      gsap.utils.toArray<HTMLElement>('main > *, [data-reveal]').forEach((element, index) => {
+        gsap.fromTo(element, { opacity: 0, y: 28 }, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: Math.min(index * 0.04, 0.3),
+          ease: 'power3.out',
+          scrollTrigger: { trigger: element, start: 'top 88%', once: true },
+        });
+      });
+    });
     gsap.to(drift, { rotation: Math.PI * 2, duration: 24, repeat: -1, ease: 'none' });
     const onPointerMove = (event: PointerEvent) => {
       target.x = (event.clientX / window.innerWidth - 0.5) * 0.22;
@@ -70,6 +85,8 @@ export function ThreePageAnimation({ page }: Props) {
     return () => {
       cancelAnimationFrame(frame);
       enter.kill();
+      revealContext.revert();
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       gsap.killTweensOf(drift);
       window.removeEventListener('pointermove', onPointerMove);
       window.removeEventListener('resize', onResize);
