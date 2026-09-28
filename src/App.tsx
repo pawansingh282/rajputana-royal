@@ -14,6 +14,7 @@ import { GalleryPage } from './pages/GalleryPage';
 import { ContactPage } from './pages/ContactPage';
 import { PHOTO_ITEMS } from './data/photographyData';
 import { MessageCircle, Phone } from 'lucide-react';
+import { ThreePageAnimation } from './components/ThreePageAnimation';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageId>('home');
@@ -61,7 +62,10 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#0b0c10] text-[#e0e2ec] flex flex-col selection:bg-[#d4af37]/30 selection:text-[#f3e5ab] relative">
       
+      <ThreePageAnimation page={currentPage} />
+
       {/* Top Navbar */}
+      <div className="relative z-10">
       <Navbar
         currentPage={currentPage}
         onNavigate={handleNavigate}
@@ -161,6 +165,7 @@ export default function App() {
         onNavigate={handleNavigate}
         onOpenBooking={() => handleOpenBooking()}
       />
+      </div>
 
     </div>
   );
