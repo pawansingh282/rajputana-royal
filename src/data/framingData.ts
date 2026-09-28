@@ -1,0 +1,83 @@
+import { FramingProductTeaser, Testimonial } from '../types';
+
+export const FRAMING_TEASERS: FramingProductTeaser[] = [
+  {
+    id: 'frame-teak',
+    title: 'Heritage Sheesham & Teak Wood Frames',
+    tagline: 'Hand-carved royal borders crafted by Jodhpur master artisans',
+    material: 'Seasoned Solid Teakwood with Matte Gold Leaf inlay',
+    imageUrl: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=85',
+    startingPrice: '₹1,499',
+    features: ['Anti-reflective museum glass', '100% moisture & termite proof', 'Customizable sizes up to 5x8 feet', 'Acid-free archival backing'],
+  },
+  {
+    id: 'frame-acrylic',
+    title: 'Ultra-HD Floating Acrylic Glass Prints',
+    tagline: 'Sleek frameless high-gloss clarity for modern interiors',
+    material: '6mm Diamond Polished Optical Acrylic',
+    imageUrl: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&w=800&q=85',
+    startingPrice: '₹2,299',
+    features: ['Vibrant color luminescence', 'Hidden aluminum float sub-frame', 'UV fade resistant for 75+ years', 'Edge-to-edge frameless aesthetic'],
+  },
+  {
+    id: 'frame-canvas',
+    title: 'Gallery Wrap Textured Canvas & Gold Floater',
+    tagline: 'Turn your wedding & pre-wedding photographs into fine-art canvas',
+    material: '380 GSM Heavy Cotton Canvas with Pine Wood Stretcher',
+    imageUrl: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=85',
+    startingPrice: '₹1,899',
+    features: ['Hand-applied protective lacquer coat', 'Choice of brushed champagne gold or matte black floater outer frame', 'Ready to hang hardware pre-installed', 'Lifetime warranty against warping'],
+  },
+  {
+    id: 'frame-tabletop',
+    title: 'Crystal Beveled Edge Tabletop Keepsakes',
+    tagline: 'Exquisite mini frames perfect for bedside and office desks',
+    material: 'K9 Crystal & Brushed Brass Accents',
+    imageUrl: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=85',
+    startingPrice: '₹899',
+    features: ['Weighted heavy crystal base', 'Velvet gift box included', 'Dual-sided portrait display', 'Ideal for gifting & corporate souvenirs'],
+  },
+];
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    id: 't-1',
+    name: 'Kunal & Priya Rathore',
+    location: 'Jaipur / Jodhpur',
+    service: 'Wedding Photography',
+    rating: 5,
+    review: 'Group of Infinity captured our royal palace wedding in Jodhpur with supreme artistry. The teaser video felt like a Bollywood blockbuster! Their drone shots during the Varmala were out of this world.',
+    date: 'January 2026',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
+  },
+  {
+    id: 't-2',
+    name: 'Vikramaditya Sharma',
+    location: 'Delhi NCR',
+    service: 'Travels',
+    rating: 5,
+    review: 'We booked the Innova Crysta for our 6-day Rajasthan tour from Jodhpur to Jaisalmer & Udaipur. The car was spotless, and chauffeur Rawat Ji knew all hidden food gems and desert spots. Seamless experience!',
+    date: 'February 2026',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
+  },
+  {
+    id: 't-3',
+    name: 'Aakash & Sneha Mehta',
+    location: 'Mumbai',
+    service: 'Pre-Wedding',
+    rating: 5,
+    review: 'The pre-wedding shoot at Sam Sand Dunes and Mehrangarh Fort exceeded all our expectations. The team arranged vintage cars, smoke bombs, and guided our poses effortlessly. Truly endless memories!',
+    date: 'December 2025',
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
+  },
+  {
+    id: 't-4',
+    name: 'Hotel Suryagarh Boutique Partner',
+    location: 'Jaisalmer',
+    service: 'Commercial Shoot',
+    rating: 5,
+    review: 'Infinity Production House handled our hospitality brand video with 6K cinema cameras. The lighting, pacing, and color grade directly increased our premium suite bookings by 40%.',
+    date: 'March 2026',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
+  },
+];

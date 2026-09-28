@@ -1,31 +1,167 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { PageId, PhotographyCategory, PhotoItem, TravelPackage } from './types';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { PageId, PhotographyCategory } from './types';
-import { Camera, Car, Frame, ArrowRight } from 'lucide-react';
+import { BookingModal } from './components/BookingModal';
+import { LightboxModal } from './components/LightboxModal';
+import { PackageDetailModal } from './components/PackageDetailModal';
+import { HomePage } from './pages/HomePage';
+import { PhotographyPage } from './pages/PhotographyPage';
+import { TravelsPage } from './pages/TravelsPage';
+import { FarmingPage } from './pages/FarmingPage';
+import { AboutPage } from './pages/AboutPage';
+import { GalleryPage } from './pages/GalleryPage';
+import { ContactPage } from './pages/ContactPage';
+import { PHOTO_ITEMS } from './data/photographyData';
+import { MessageCircle, Phone } from 'lucide-react';
 
 export default function App() {
-  const [page, setPage] = useState<PageId>('home');
-  const navigate = (next: PageId, _category?: PhotographyCategory) => setPage(next);
-  return <div className="min-h-screen bg-[#07080b] text-white">
-    <Navbar currentPage={page} onNavigate={navigate} onOpenBooking={() => undefined} />
-    <main>
-      <section className="relative min-h-[calc(100vh-80px)] overflow-hidden px-6 py-24 text-center">
-        <img src="/images/infinity_hero_banner.jpg" alt="Mountain road with car and photographer" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-black/55" />
-        <div className="relative mx-auto max-w-5xl pt-10">
-          <p className="mb-5 font-serif text-4xl italic text-[#d4af37]">Welcome to</p>
-          <h1 className="text-6xl font-light tracking-[0.22em] sm:text-8xl">GROUP OF<br /><span className="font-semibold">INFINITY</span></h1>
-          <p className="mt-7 tracking-[0.3em] text-white/90">ONE DESTINATION, ENDLESS EXPERIENCES.</p>
-          <p className="mt-14 text-sm font-semibold uppercase tracking-[0.25em] text-[#d4af37]">Choose your experience</p>
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {[{icon: Car,title:'INFINITY',accent:'TRAVELS',copy:'Comfortable rides, experienced drivers and unforgettable journeys across India.',image:'/images/card_travels_car.jpg'}, {icon: Camera,title:'INFINITY',accent:'PRODUCTION HOUSE',copy:'Photography & Cinematography services to capture your special moments.',image:'/images/card_framing_wall.jpg'}, {icon: Frame,title:'INFINITY',accent:'FRAMING',copy:'Premium frames for your memories, because every moment deserves a frame.',image:'/images/card_framing_wall.jpg'}].map(({icon:Icon,title,accent,copy,image}) => <article key={accent} className="overflow-hidden rounded-2xl border border-[#c9974c]/50 bg-black/75 p-6 shadow-2xl backdrop-blur-sm">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-[#d4af37] text-[#d4af37]"><Icon className="h-7 w-7" /></div><h2 className="mt-5 text-2xl tracking-[0.16em]">{title}</h2><h3 className="text-xl tracking-[0.1em] text-[#d4af37]">{accent}</h3><p className="mt-5 min-h-20 text-sm leading-7 text-white/85">{copy}</p><img src={image} alt="" className="mt-4 h-32 w-full object-cover opacity-80" /><button onClick={() => undefined} className="mt-5 flex w-full items-center justify-center gap-2 rounded border border-[#d4af37] py-3 text-xs uppercase tracking-widest text-[#f3e5ab]">Explore <ArrowRight className="h-4 w-4" /></button>
-            </article>)}
-          </div>
-        </div>
-      </section>
-    </main>
-    <Footer onNavigate={navigate} onOpenBooking={() => undefined} />
-  </div>;
+  const [currentPage, setCurrentPage] = useState<PageId>('home');
+  const [activePhotoCategory, setActivePhotoCategory] = useState<PhotographyCategory>('highlights');
+  
+  // Modals state
+  const [bookingModalOpen, setBookingModalOpen] = useState(false);
+  const [bookingPrefillType, setBookingPrefillType] = useState<'travel' | 'photography'>('travel');
+  const [bookingPrefillTitle, setBookingPrefillTitle] = useState<string>('');
+
+  const [selectedPhoto, setSelectedPhoto] = useState<PhotoItem | null>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+
+  const [selectedPackage, setSelectedPackage] = useState<TravelPackage | null>(null);
+  const [packageModalOpen, setPackageModalOpen] = useState(false);
+
+  // Navigation handler
+  const handleNavigate = (page: PageId, category?: PhotographyCategory) => {
+    setCurrentPage(page);
+    if (category) {
+      setActivePhotoCategory(category);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Open Booking with optional prefill
+  const handleOpenBooking = (prefillType?: 'travel' | 'photography', itemTitle?: string) => {
+    setBookingPrefillType(prefillType || 'travel');
+    setBookingPrefillTitle(itemTitle || '');
+    setBookingModalOpen(true);
+  };
+
+  // Select Photo for Lightbox
+  const handleSelectPhoto = (photo: PhotoItem) => {
+    setSelectedPhoto(photo);
+    setLightboxOpen(true);
+  };
+
+  // Select Travel Package for Detail Modal
+  const handleSelectPackage = (pkg: TravelPackage) => {
+    setSelectedPackage(pkg);
+    setPackageModalOpen(true);
+  };
+
+  return (
+    <div className="min-h-screen bg-[#0b0c10] text-[#e0e2ec] flex flex-col selection:bg-[#d4af37]/30 selection:text-[#f3e5ab] relative">
+      
+      {/* Top Navbar */}
+      <Navbar
+        currentPage={currentPage}
+        onNavigate={handleNavigate}
+        onOpenBooking={handleOpenBooking}
+      />
+
+      {/* Main Page Content */}
+      <main className="flex-1">
+        {currentPage === 'home' && (
+          <HomePage
+            onNavigate={handleNavigate}
+            onOpenBooking={handleOpenBooking}
+            onSelectPackage={handleSelectPackage}
+            onSelectPhoto={handleSelectPhoto}
+          />
+        )}
+
+        {currentPage === 'photography' && (
+          <PhotographyPage
+            initialCategory={activePhotoCategory}
+            onSelectPhoto={handleSelectPhoto}
+            onOpenBooking={handleOpenBooking}
+          />
+        )}
+
+        {currentPage === 'travels' && (
+          <TravelsPage
+            onSelectPackage={handleSelectPackage}
+            onOpenBooking={handleOpenBooking}
+          />
+        )}
+
+        {(currentPage === 'farming' || currentPage === 'framing') && (
+          <FarmingPage
+            onOpenBooking={() => handleOpenBooking('travel', 'Infinity Farming Inquiry')}
+          />
+        )}
+
+        {currentPage === 'about' && (
+          <AboutPage
+            onNavigate={handleNavigate}
+            onOpenBooking={handleOpenBooking}
+          />
+        )}
+
+        {currentPage === 'gallery' && (
+          <GalleryPage
+            onSelectPhoto={handleSelectPhoto}
+            onOpenBooking={handleOpenBooking}
+          />
+        )}
+
+        {currentPage === 'contact' && <ContactPage />}
+      </main>
+
+      {/* Floating Action Buttons (Quick WhatsApp & Call) */}
+      <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
+        <a
+          href="https://wa.me/911234567890?text=Hello%20Group%20of%20Infinity,%20I%20would%20like%20to%20inquire%20about%20Travel%20or%20Photography%20services."
+          target="_blank"
+          rel="noreferrer"
+          className="w-13 h-13 rounded-full bg-[#25D366] text-black flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform p-3"
+          title="Chat with Us on WhatsApp"
+        >
+          <MessageCircle className="w-7 h-7 fill-current" />
+        </a>
+      </div>
+
+      {/* Global Booking Modal */}
+      <BookingModal
+        isOpen={bookingModalOpen}
+        onClose={() => setBookingModalOpen(false)}
+        initialType={bookingPrefillType}
+        initialItemTitle={bookingPrefillTitle}
+      />
+
+      {/* High-Res Photo Lightbox Modal */}
+      <LightboxModal
+        photo={selectedPhoto}
+        allPhotos={PHOTO_ITEMS}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        onSelectPhoto={(p) => setSelectedPhoto(p)}
+        onBookShoot={(p) => handleOpenBooking('photography', `${p.title} (${p.category})`)}
+      />
+
+      {/* Travel Package Itinerary Detail Modal */}
+      <PackageDetailModal
+        pkg={selectedPackage}
+        isOpen={packageModalOpen}
+        onClose={() => setPackageModalOpen(false)}
+        onBookNow={(pkg) => handleOpenBooking('travel', pkg.title)}
+      />
+
+      {/* Footer */}
+      <Footer
+        onNavigate={handleNavigate}
+        onOpenBooking={() => handleOpenBooking()}
+      />
+
+    </div>
+  );
 }
