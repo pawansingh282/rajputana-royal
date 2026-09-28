@@ -171,8 +171,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenB
           <div className="relative group">
             <button
               id="nav-link-photography"
-              onClick={() => handleNavClick('photography')}
+              onClick={() => setPhotoDropdownOpen((open) => !open)}
               onMouseEnter={() => setPhotoDropdownOpen(true)}
+              aria-expanded={photoDropdownOpen}
+              aria-haspopup="menu"
               className={`px-3 py-2 rounded-md tracking-wider uppercase text-xs transition-colors flex items-center gap-1 ${
                 currentPage === 'photography'
                   ? 'text-[#f3e5ab] font-bold border-b-2 border-[#d4af37]'
@@ -186,16 +188,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenB
             <div 
               onMouseLeave={() => setPhotoDropdownOpen(false)}
               className={`absolute top-full left-0 w-72 pt-2 transition-all duration-200 ${
-                photoDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+                photoDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'
               }`}
             >
-              <div className="bg-[#121318] border border-[#d4af37]/30 rounded-xl p-2.5 shadow-2xl backdrop-blur-xl space-y-1">
+              <div role="menu" className="bg-[#121318] border border-[#d4af37]/30 rounded-xl p-2.5 shadow-2xl backdrop-blur-xl space-y-1">
                 <div className="px-3 py-1.5 text-[10px] uppercase tracking-widest text-[#d4af37] font-semibold border-b border-[#d4af37]/15">
                   Infinity Production Folders
                 </div>
 
                 <button
-                  onClick={() => handleNavClick('photography', 'highlights')}
+role="menuitem" onClick={() => handleNavClick('photography', 'highlights')}
                   className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-[#1f212a] text-left text-xs text-neutral-200 hover:text-[#f3e5ab] transition-colors"
                 >
                   <Sparkles className="w-4 h-4 text-[#d4af37]" />
