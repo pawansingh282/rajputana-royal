@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { PageId, PhotographyCategory } from './types';
+import { RestoredPage } from './pages/RestoredPages';
 import { Camera, Car, Frame, ArrowRight, ShieldCheck, Users, Award, Heart, MapPin, Mail, Phone, Instagram, Facebook, Youtube } from 'lucide-react';
 
 export default function App() {
@@ -9,7 +10,7 @@ export default function App() {
   const navigate = (next: PageId, _category?: PhotographyCategory) => setPage(next);
   return <div className="min-h-screen bg-[#07080b] text-white">
     <Navbar currentPage={page} onNavigate={navigate} onOpenBooking={() => undefined} />
-    <main>
+    {page !== 'home' ? <RestoredPage page={page} onNavigate={navigate} /> : <main>
       <section className="relative min-h-[calc(100vh-80px)] overflow-hidden px-6 py-24 text-center">
         <img src="/images/infinity_hero_banner.jpg" alt="Mountain road with car and photographer" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-black/55" />
@@ -57,7 +58,7 @@ export default function App() {
       </section>
 
       <section className="bg-black px-6 py-10 pb-24"><div className="mx-auto max-w-3xl rounded-2xl border border-[#c9974c]/50 bg-gradient-to-br from-[#1a1710] to-[#0c0d10] px-6 py-14 text-center"><p className="text-xs uppercase tracking-[0.3em] text-[#d4af37]">Start your infinite journey</p><h2 className="mt-4 text-3xl font-bold sm:text-4xl">Ready to Travel or Capture<br />Your Dream Event?</h2><p className="mx-auto mt-5 max-w-xl text-sm text-white/60">Connect directly with our concierge desk for instant car booking or wedding cinematography quotes.</p><div className="mt-8 flex flex-wrap justify-center gap-4"><button onClick={() => navigate('contact')} className="rounded bg-[#d4af37] px-6 py-3 text-xs font-bold uppercase tracking-wider text-black">Contact studio desk</button><button onClick={() => navigate('gallery')} className="rounded border border-[#d4af37] px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#f3e5ab]">Explore full gallery</button></div></div></section>
-    </main>
+    </main>}
     <Footer onNavigate={navigate} onOpenBooking={() => undefined} />
   </div>;
 }
