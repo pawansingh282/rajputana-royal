@@ -58,7 +58,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     }
 
     const encoded = encodeURIComponent(msg);
-    window.open(`https://wa.me/911234567890?text=${encoded}`, '_blank');
+    window.open(`https://wa.me/917726057101?text=${encoded}`, '_blank');
   };
 
   return (
