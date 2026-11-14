@@ -1,213 +1,81 @@
 import React from 'react';
-import { Phone, Mail, MapPin, Instagram, Facebook, Youtube, MessageCircle } from 'lucide-react';
+import { Instagram, MessageCircle, MoveRight, Youtube } from 'lucide-react';
 import { PageId, PhotographyCategory } from '../types';
 
 interface FooterProps {
   onNavigate: (page: PageId, category?: PhotographyCategory) => void;
-  onOpenBooking: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => {
-  const scrollToTop = () => {
+const whatsappUrl = 'https://wa.me/917726057101?text=Hello%20Group%20of%20Infinity%2C%20I%27d%20like%20to%20plan%20a%20journey.';
+
+export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+  const navigateTo = (page: PageId) => {
+    onNavigate(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <footer id="main-footer" className="bg-black border-t border-[#d4af37]/20 pt-16 pb-8 text-neutral-300 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-neutral-800">
-          
-          {/* Brand & Mission Column */}
-          <div className="space-y-4">
-            <button
-              onClick={() => {
-                onNavigate('home');
-                scrollToTop();
-              }}
-              className="flex items-center gap-3 text-left group"
-            >
-              <div className="w-10 h-10 flex items-center justify-center">
-                <svg
-                  className="w-9 h-9 text-[#d4af37] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]"
-                  viewBox="0 0 100 50"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M30 10 C 15 10, 10 25, 25 38 C 38 48, 62 2, 75 12 C 90 25, 85 40, 70 40 C 55 40, 45 25, 30 10 Z" />
-                </svg>
-              </div>
-              <div>
-                <span className="font-serif-luxury text-base font-bold tracking-[0.2em] text-white block">
-                  GROUP OF <span className="text-[#d4af37]">INFINITY</span>
-                </span>
-                <span className="text-[9px] tracking-[0.25em] text-neutral-400 uppercase block font-medium">
-                  EXPERIENCE BEYOND LIMITS
-                </span>
-              </div>
-            </button>
+    <footer id="main-footer" className="relative overflow-hidden bg-[#101315] text-white">
+      <section
+        className="relative flex min-h-[280px] items-center bg-cover bg-center px-6 py-12 sm:min-h-[320px] sm:px-10 lg:min-h-[360px] lg:px-[6.25%]"
+        style={{ backgroundImage: "linear-gradient(90deg, rgba(13,17,20,.9) 0%, rgba(13,17,20,.68) 42%, rgba(13,17,20,.06) 100%), url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A4%BE%E0%A4%A8%20%E0%A4%95%E0%A5%80%20%E0%A4%B6%E0%A4%BE%E0%A4%B9%E0%A5%80%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E2%80%93%20d%E0%A4%91%E0%A4%AB%20%E0%A4%87%E0%A4%A8%E0%A5%8D%E0%A4%AB%E0%A4%BF%E0%A4%A8%E0%A4%BF%E0%A4%9F%E0%A5%80-2yY1GsJ4KeRs0SG4M68xd23cWzDTEz.png')" }}
+      >
+        <div className="relative z-10 max-w-xl">
+          <h2 className="font-serif-luxury text-4xl leading-[.98] tracking-tight sm:text-5xl">
+            Your Next Journey<br />
+            <span className="italic text-[#d5a45d]">Starts Here.</span>
+          </h2>
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-white/90 sm:text-base">
+            Book a Swift for your city travel, outstation trip or wedding and experience a smooth, comfortable ride across Rajasthan.
+          </p>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-5 inline-flex min-h-11 items-center gap-3 rounded-md bg-[#a97936] px-5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#bd914f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            <MessageCircle aria-hidden="true" className="h-4 w-4" />
+            Enquire on WhatsApp
+            <MoveRight aria-hidden="true" className="h-4 w-4" />
+          </a>
+        </div>
+      </section>
 
-            <p className="text-xs leading-relaxed text-neutral-300 max-w-sm">
-              Travel to explore, photography to inspire. We create experiences you'll always remember.
-            </p>
+      <div className="border-t border-white/10 bg-[#101315]/95 px-5 sm:px-8 lg:px-[5%]">
+        <div className="mx-auto flex max-w-[1440px] flex-col gap-6 py-5 md:flex-row md:items-center md:justify-between">
+          <button onClick={() => navigateTo('home')} className="flex items-center gap-3 text-left" aria-label="Group of Infinity home">
+            <svg className="h-9 w-12 shrink-0 text-[#d5a45d]" viewBox="0 0 100 50" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true">
+              <path d="M30 10 C 15 10, 10 25, 25 38 C 38 48, 62 2, 75 12 C 90 25, 85 40, 70 40 C 55 40, 45 25, 30 10 Z" />
+            </svg>
+            <span className="font-serif-luxury text-sm leading-tight tracking-[0.14em] text-white sm:text-base">GROUP OF<br />INFINITY</span>
+          </button>
+
+          <p className="max-w-xs text-xs leading-relaxed text-neutral-300 md:border-l md:border-[#d5a45d]/60 md:pl-5">
+            Wedding Photography &amp; Travel Cars<br />in Jodhpur and across Rajasthan.
+          </p>
+
+          <nav aria-label="Footer navigation" className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-white/90">
+            <button onClick={() => navigateTo('home')} className="transition-colors hover:text-[#d5a45d]">Home</button>
+            <button onClick={() => navigateTo('travels')} className="transition-colors hover:text-[#d5a45d]">Travel Cars</button>
+            <button onClick={() => navigateTo('photography')} className="transition-colors hover:text-[#d5a45d]">Photography</button>
+            <button onClick={() => navigateTo('about')} className="transition-colors hover:text-[#d5a45d]">About</button>
+            <button onClick={() => navigateTo('contact')} className="transition-colors hover:text-[#d5a45d]">Contact</button>
+          </nav>
+
+          <div className="flex items-center gap-4 text-white">
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" className="transition-colors hover:text-[#d5a45d]"><Instagram className="h-4 w-4" /></a>
+            <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube" className="transition-colors hover:text-[#d5a45d]"><Youtube className="h-4 w-4" /></a>
+            <a href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="WhatsApp" className="transition-colors hover:text-[#d5a45d]"><MessageCircle className="h-4 w-4" /></a>
           </div>
-
-          {/* Quick Links Column */}
-          <div>
-            <h4 className="font-serif-luxury text-white text-xs uppercase tracking-[0.2em] mb-4 pb-2 border-b border-neutral-800">
-              QUICK LINKS
-            </h4>
-            <ul className="space-y-2.5 text-xs">
-              <li>
-                <button
-                  onClick={() => {
-                    onNavigate('home');
-                    scrollToTop();
-                  }}
-                  className="text-neutral-300 hover:text-[#d4af37] transition-colors"
-                >
-                  Home
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    onNavigate('about');
-                    scrollToTop();
-                  }}
-                  className="text-neutral-300 hover:text-[#d4af37] transition-colors"
-                >
-                  About Us
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    onNavigate('travels');
-                    scrollToTop();
-                  }}
-                  className="text-neutral-300 hover:text-[#d4af37] transition-colors"
-                >
-                  Travel
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    onNavigate('photography');
-                    scrollToTop();
-                  }}
-                  className="text-neutral-300 hover:text-[#d4af37] transition-colors"
-                >
-                  Photography
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    onNavigate('gallery');
-                    scrollToTop();
-                  }}
-                  className="text-neutral-300 hover:text-[#d4af37] transition-colors"
-                >
-                  Gallery
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    onNavigate('contact');
-                    scrollToTop();
-                  }}
-                  className="text-neutral-300 hover:text-[#d4af37] transition-colors"
-                >
-                  Contact
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Us Column */}
-          <div>
-            <h4 className="font-serif-luxury text-white text-xs uppercase tracking-[0.2em] mb-4 pb-2 border-b border-neutral-800">
-              CONTACT US
-            </h4>
-            <ul className="space-y-3.5 text-xs">
-              <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
-                <div>
-                  <a href="tel:+911234567890" className="text-neutral-200 hover:text-[#d4af37] transition-colors block">
-                    +91 12345 67890
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
-                <a href="mailto:info@groupofinfinity.art" className="text-neutral-200 hover:text-[#d4af37] transition-colors">
-                  info@groupofinfinity.art
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
-                <span className="text-neutral-200">
-                  Jodhpur, Rajasthan, India
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Socials & Connect */}
-          <div>
-            <h4 className="font-serif-luxury text-white text-xs uppercase tracking-[0.2em] mb-4 pb-2 border-b border-neutral-800">
-              FOLLOW US
-            </h4>
-            <div className="flex items-center gap-3 pt-1">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-10 h-10 rounded-full border border-neutral-800 bg-[#0d0d10] flex items-center justify-center text-neutral-300 hover:text-[#d4af37] hover:border-[#d4af37] transition-all hover:scale-110"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-10 h-10 rounded-full border border-neutral-800 bg-[#0d0d10] flex items-center justify-center text-neutral-300 hover:text-[#d4af37] hover:border-[#d4af37] transition-all hover:scale-110"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-10 h-10 rounded-full border border-neutral-800 bg-[#0d0d10] flex items-center justify-center text-neutral-300 hover:text-[#d4af37] hover:border-[#d4af37] transition-all hover:scale-110"
-                aria-label="YouTube"
-              >
-                <Youtube className="w-4 h-4" />
-              </a>
-              <a
-                href="https://wa.me/911234567890?text=Hello%20Group%20of%20Infinity,%20I%20would%20like%20to%20inquire%20about%20your%20services."
-                target="_blank"
-                rel="noreferrer"
-                className="w-10 h-10 rounded-full border border-neutral-800 bg-[#0d0d10] flex items-center justify-center text-neutral-300 hover:text-[#25D366] hover:border-[#25D366] transition-all hover:scale-110"
-                aria-label="WhatsApp"
-              >
-                <MessageCircle className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
-
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 text-center text-xs text-neutral-400">
-          © 2025 Group of Infinity. All Rights Reserved.
+        <div className="mx-auto flex max-w-[1440px] items-center gap-4 pb-5" aria-hidden="true">
+          <span className="h-px flex-1 bg-gradient-to-r from-transparent via-[#b88c4b]/80 to-[#b88c4b]/80" />
+          <svg className="h-8 w-48 shrink-0 text-[#b88c4b]" viewBox="0 0 192 36" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M2 31h188M8 28h12v-8l8-6 8 6v8h8V17l11-9 11 9v11h7V20l8-6 8 6v8h7V18l9-8 10 8v10h8V22l13-4 13 4v6M27 20h2m25-1h2m26 4h2m34-2h2m26-1h2M21 31V19m14 12V19m18 12V11m22 20V19m13 12V18m20 13V13m18 18V23" />
+            <path d="M48 8V4h8v4m-5-4V1m25 13v-4h8v4m23 0V6h7v7m24 5v-5h8v5" />
+          </svg>
+          <span className="h-px flex-1 bg-gradient-to-l from-transparent via-[#b88c4b]/80 to-[#b88c4b]/80" />
         </div>
       </div>
     </footer>

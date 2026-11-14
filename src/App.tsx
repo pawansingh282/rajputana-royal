@@ -255,10 +255,7 @@ export default function App() {
       />
 
       {/* Footer */}
-      <Footer
-        onNavigate={handleNavigate}
-        onOpenBooking={() => handleOpenBooking()}
-      />
+      <Footer onNavigate={handleNavigate} />
       </div>
 
     </div>
