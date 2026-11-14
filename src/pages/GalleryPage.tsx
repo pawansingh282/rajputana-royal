@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Camera, Sparkles, Filter, MapPin, Eye, Heart, Crown, Baby, Briefcase, Compass } from 'lucide-react';
+import { Camera, MapPin, Eye } from 'lucide-react';
 import { PhotoItem, PhotographyCategory } from '../types';
 import { PHOTO_ITEMS } from '../data/photographyData';
 import { ImageWithFallback } from '../components/ImageWithFallback';
@@ -9,13 +9,25 @@ interface GalleryPageProps {
   onOpenBooking: () => void;
 }
 
+const GALLERY_CATEGORIES: { id: PhotographyCategory; label: string }[] = [
+  { id: 'highlights', label: 'Highlights' },
+  { id: 'pre-wedding', label: 'Pre-Wedding' },
+  { id: 'wedding', label: 'Weddings' },
+  { id: 'baby-shoot', label: 'Baby & Kids' },
+  { id: 'commercial', label: 'Commercial' },
+  { id: 'antique-india', label: 'Antique India' },
+];
+
 export const GalleryPage: React.FC<GalleryPageProps> = ({ onSelectPhoto, onOpenBooking }) => {
   const [selectedFilter, setSelectedFilter] = useState<string>('all');
 
-  const filteredItems = PHOTO_ITEMS.filter((item) => {
-    if (selectedFilter === 'all') return true;
-    return item.category === selectedFilter;
-  });
+  const filteredItems = PHOTO_ITEMS
+    .filter((item) => selectedFilter === 'all' || item.category === selectedFilter)
+    .sort((first, second) => {
+      const firstOrder = GALLERY_CATEGORIES.findIndex((category) => category.id === first.category);
+      const secondOrder = GALLERY_CATEGORIES.findIndex((category) => category.id === second.category);
+      return firstOrder - secondOrder;
+    });
 
   return (
     <div className="pt-28 pb-20 space-y-16">
@@ -38,6 +50,8 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onSelectPhoto, onOpenB
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-center justify-center gap-2.5 bg-[#121318] border border-[#d4af37]/20 p-2.5 rounded-2xl max-w-3xl mx-auto shadow-xl">
           <button
+            type="button"
+            aria-pressed={selectedFilter === 'all'}
             onClick={() => setSelectedFilter('all')}
             className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
               selectedFilter === 'all'
@@ -47,72 +61,22 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onSelectPhoto, onOpenB
           >
             All Works ({PHOTO_ITEMS.length})
           </button>
-          
-          <button
-            onClick={() => setSelectedFilter('highlights')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
-              selectedFilter === 'highlights'
-                ? 'bg-[#d4af37] text-black shadow-md'
-                : 'text-neutral-400 hover:text-white'
-            }`}
-          >
-            Highlights
-          </button>
 
-          <button
-            onClick={() => setSelectedFilter('antique-india')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
-              selectedFilter === 'antique-india'
-                ? 'bg-[#d4af37] text-black shadow-md'
-                : 'text-neutral-400 hover:text-white'
-            }`}
-          >
-            Antique India
-          </button>
-
-          <button
-            onClick={() => setSelectedFilter('pre-wedding')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
-              selectedFilter === 'pre-wedding'
-                ? 'bg-[#d4af37] text-black shadow-md'
-                : 'text-neutral-400 hover:text-white'
-            }`}
-          >
-            Pre-Wedding
-          </button>
-
-          <button
-            onClick={() => setSelectedFilter('wedding')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
-              selectedFilter === 'wedding'
-                ? 'bg-[#d4af37] text-black shadow-md'
-                : 'text-neutral-400 hover:text-white'
-            }`}
-          >
-            Weddings
-          </button>
-
-          <button
-            onClick={() => setSelectedFilter('baby-shoot')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
-              selectedFilter === 'baby-shoot'
-                ? 'bg-[#d4af37] text-black shadow-md'
-                : 'text-neutral-400 hover:text-white'
-            }`}
-          >
-            Baby & Kids
-          </button>
-
-          <button
-            onClick={() => setSelectedFilter('commercial')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
-              selectedFilter === 'commercial'
-                ? 'bg-[#d4af37] text-black shadow-md'
-                : 'text-neutral-400 hover:text-white'
-            }`}
-          >
-            Commercial
-          </button>
+          {GALLERY_CATEGORIES.map((category) => (
+            <button
+              key={category.id}
+              type="button"
+              aria-pressed={selectedFilter === category.id}
+              onClick={() => setSelectedFilter(category.id)}
+              className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
+                selectedFilter === category.id
+                  ? 'bg-[#d4af37] text-black shadow-md'
+                  : 'text-neutral-400 hover:text-white'
+              }`}
+            >
+              {category.label}
+            </button>
+          ))}
         </div>
       </section>
 

@@ -117,11 +117,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenB
           </button>
 
           {/* TRAVEL & CAR RENTAL DROPDOWN */}
-          <div className="relative group">
+          <div
+            className="relative group"
+            onMouseEnter={() => setTravelDropdownOpen(true)}
+            onMouseLeave={() => setTravelDropdownOpen(false)}
+          >
             <button
               id="nav-link-travels"
               onClick={() => handleNavClick('travels')}
-              onMouseEnter={() => setTravelDropdownOpen(true)}
               className={`px-3 py-2 rounded-md tracking-wider uppercase text-xs transition-colors flex items-center gap-1 ${
                 currentPage === 'travels'
                   ? 'text-[#f3e5ab] font-bold border-b-2 border-[#d4af37]'
@@ -133,7 +136,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenB
             </button>
 
             <div 
-              onMouseLeave={() => setTravelDropdownOpen(false)}
               className={`absolute top-full left-0 w-64 pt-2 transition-all duration-200 ${
                 travelDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
               }`}
@@ -168,11 +170,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenB
           </div>
 
           {/* PHOTOGRAPHY WITH FOLDERS DROPDOWN */}
-          <div className="relative group">
+          <div
+            className="relative group"
+            onMouseEnter={() => setPhotoDropdownOpen(true)}
+            onMouseLeave={() => setPhotoDropdownOpen(false)}
+          >
             <button
               id="nav-link-photography"
               onClick={() => handleNavClick('photography')}
-              onMouseEnter={() => setPhotoDropdownOpen(true)}
               className={`px-3 py-2 rounded-md tracking-wider uppercase text-xs transition-colors flex items-center gap-1 ${
                 currentPage === 'photography'
                   ? 'text-[#f3e5ab] font-bold border-b-2 border-[#d4af37]'
@@ -184,7 +189,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenB
             </button>
 
             <div 
-              onMouseLeave={() => setPhotoDropdownOpen(false)}
               className={`absolute top-full left-0 w-72 pt-2 transition-all duration-200 ${
                 photoDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
               }`}
