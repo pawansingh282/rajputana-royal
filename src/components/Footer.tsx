@@ -16,30 +16,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
   return (
     <footer id="main-footer" className="relative overflow-hidden bg-[#101315] text-white">
-      <section
-        className="relative flex min-h-[280px] items-center bg-cover bg-[center_48%] px-6 py-12 sm:min-h-[320px] sm:px-10 lg:min-h-[360px] lg:px-[6.25%]"
-        style={{ backgroundImage: "linear-gradient(90deg, rgba(13,17,20,.62) 0%, rgba(13,17,20,.34) 38%, rgba(13,17,20,.02) 100%), url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E0%A4%AE%E0%A5%87%E0%A4%B9%E0%A4%B0%E0%A4%BE%E0%A4%A8%E0%A4%97%E0%A4%A2%E0%A4%BC%20%E0%A4%95%E0%A4%BF%E0%A4%B2%E0%A5%87%20%E0%A4%95%E0%A5%80%20%E0%A4%B8%E0%A4%BE%E0%A4%82%E0%A4%9D%E0%A5%80%20%E0%A4%B0%E0%A5%8B%E0%A4%B6%E0%A4%A8%E0%A5%80-TVkDEr70JMj4uX1J7bBu0ha2YjcnZW.png')" }}
-      >
-        <div className="relative z-10 max-w-xl">
-          <h2 className="font-serif-luxury text-4xl leading-[.98] tracking-tight sm:text-5xl">
-            Your Next Journey<br />
-            <span className="italic text-[#d5a45d]">Starts Here.</span>
-          </h2>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-white/90 sm:text-base">
-            Book a Swift for your city travel, outstation trip or wedding and experience a smooth, comfortable ride across Rajasthan.
-          </p>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-5 inline-flex min-h-11 items-center gap-3 rounded-md bg-[#a97936] px-5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#bd914f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
-            <MessageCircle aria-hidden="true" className="h-4 w-4" />
-            Enquire on WhatsApp
-            <MoveRight aria-hidden="true" className="h-4 w-4" />
-          </a>
-        </div>
-      </section>
+     
 
       <div className="border-t border-white/10 bg-[#101315]/95 px-5 sm:px-8 lg:px-[5%]">
         <div className="mx-auto flex max-w-[1440px] flex-col gap-6 py-5 md:flex-row md:items-center md:justify-between">
