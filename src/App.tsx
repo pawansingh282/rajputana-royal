@@ -16,9 +16,44 @@ import { PHOTO_ITEMS } from './data/photographyData';
 import { MessageCircle, Phone } from 'lucide-react';
 import { ThreePageAnimation } from './components/ThreePageAnimation';
 
+const photographyCategories: PhotographyCategory[] = ['highlights', 'pre-wedding', 'wedding', 'antique-india', 'commercial', 'baby-shoot'];
+
+function resolveRoute(pathname: string): { page: PageId; category: PhotographyCategory } {
+  const segments = pathname.split('/').filter(Boolean);
+  const route = segments[0]?.toLowerCase();
+  const pageByRoute: Record<string, PageId> = {
+    home: 'home',
+    about: 'about',
+    'about-us': 'about',
+    travel: 'travels',
+    travels: 'travels',
+    'travel-cars': 'travels',
+    photography: 'photography',
+    farming: 'farming',
+    framing: 'framing',
+    gallery: 'gallery',
+    contact: 'contact',
+  };
+  const page = pageByRoute[route ?? ''] ?? 'home';
+  const category = page === 'photography' && photographyCategories.includes(segments[1] as PhotographyCategory)
+    ? segments[1] as PhotographyCategory
+    : 'highlights';
+
+  return { page, category };
+}
+
+function routeForPage(page: PageId, category?: PhotographyCategory): string {
+  if (page === 'home') return '/';
+  if (page === 'about') return '/about-us';
+  if (page === 'travels') return '/travel-cars';
+  if (page === 'photography') return `/photography${category ? `/${category}` : ''}`;
+  return `/${page}`;
+}
+
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<PageId>('home');
-  const [activePhotoCategory, setActivePhotoCategory] = useState<PhotographyCategory>('highlights');
+  const initialRoute = resolveRoute(window.location.pathname);
+  const [currentPage, setCurrentPage] = useState<PageId>(initialRoute.page);
+  const [activePhotoCategory, setActivePhotoCategory] = useState<PhotographyCategory>(initialRoute.category);
   
   // Modals state
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
@@ -31,11 +66,27 @@ export default function App() {
   const [selectedPackage, setSelectedPackage] = useState<TravelPackage | null>(null);
   const [packageModalOpen, setPackageModalOpen] = useState(false);
 
-  // Navigation handler
+  useEffect(() => {
+    const syncRouteFromLocation = () => {
+      const route = resolveRoute(window.location.pathname);
+      setCurrentPage(route.page);
+      setActivePhotoCategory(route.category);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener('popstate', syncRouteFromLocation);
+    return () => window.removeEventListener('popstate', syncRouteFromLocation);
+  }, []);
+
+  // Navigation updates the address bar so each section has a shareable, reloadable URL.
   const handleNavigate = (page: PageId, category?: PhotographyCategory) => {
+    const nextPath = routeForPage(page, category);
+    if (window.location.pathname !== nextPath) {
+      window.history.pushState({}, '', nextPath);
+    }
     setCurrentPage(page);
-    if (category) {
-      setActivePhotoCategory(category);
+    if (page === 'photography') {
+      setActivePhotoCategory(category ?? 'highlights');
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
