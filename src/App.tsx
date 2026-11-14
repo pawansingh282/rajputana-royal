@@ -13,7 +13,7 @@ import { AboutPage } from './pages/AboutPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { ContactPage } from './pages/ContactPage';
 import { PHOTO_ITEMS } from './data/photographyData';
-import { MessageCircle, Phone } from 'lucide-react';
+import { ArrowUp, MessageCircle, Phone } from 'lucide-react';
 import { ThreePageAnimation } from './components/ThreePageAnimation';
 
 const photographyCategories: PhotographyCategory[] = ['highlights', 'pre-wedding', 'wedding', 'antique-india', 'commercial', 'baby-shoot'];
@@ -65,6 +65,14 @@ export default function App() {
 
   const [selectedPackage, setSelectedPackage] = useState<TravelPackage | null>(null);
   const [packageModalOpen, setPackageModalOpen] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const updateBackToTopVisibility = () => setShowBackToTop(window.scrollY > 500);
+    window.addEventListener('scroll', updateBackToTopVisibility, { passive: true });
+    updateBackToTopVisibility();
+    return () => window.removeEventListener('scroll', updateBackToTopVisibility);
+  }, []);
 
   useEffect(() => {
     const syncRouteFromLocation = () => {
@@ -174,6 +182,16 @@ export default function App() {
 
       {/* Floating Action Buttons (Quick WhatsApp & Call) */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
+        {showBackToTop && (
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            aria-label="Back to top"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-[#d4af37]/60 bg-[#121318]/95 text-[#f3e5ab] shadow-lg backdrop-blur transition hover:bg-[#d4af37] hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]"
+          >
+            <ArrowUp className="h-5 w-5" />
+          </button>
+        )}
         <a
           href="https://wa.me/911234567890?text=Hello%20Group%20of%20Infinity,%20I%20would%20like%20to%20inquire%20about%20Travel%20or%20Photography%20services."
           target="_blank"
