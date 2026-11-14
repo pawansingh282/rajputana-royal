@@ -20,7 +20,7 @@ export const ContactPage: React.FC = () => {
 
   const handleWhatsApp = () => {
     const msg = `*Contact Inquiry - Group of Infinity*\n*Name:* ${formData.name || 'Guest'}\n*Phone:* ${formData.phone}\n*Service:* ${formData.service}\n*Message:* ${formData.message}`;
-    window.open(`https://wa.me/911234567890?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(`https://wa.me/917726057101?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
   const faqs = [
@@ -92,12 +92,12 @@ export const ContactPage: React.FC = () => {
                   <div>
                     <div className="text-neutral-400 font-medium">WhatsApp Concierge</div>
                     <a
-                      href="https://wa.me/911234567890"
+                      href="https://wa.me/917726057101"
                       target="_blank"
                       rel="noreferrer"
                       className="text-sm font-bold text-white hover:text-[#25D366] transition-colors"
                     >
-                      +91 12345 67890
+                      +91 77260 57101
                     </a>
                     <div className="text-[10px] text-neutral-400">Instant quote and itinerary sharing</div>
                   </div>

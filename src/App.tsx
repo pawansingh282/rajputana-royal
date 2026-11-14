@@ -218,7 +218,7 @@ export default function App() {
           </button>
         )}
         <a
-          href="https://wa.me/911234567890?text=Hello%20Group%20of%20Infinity,%20I%20would%20like%20to%20inquire%20about%20Travel%20or%20Photography%20services."
+          href="https://wa.me/917726057101?text=Hello%20Group%20of%20Infinity,%20I%20would%20like%20to%20inquire%20about%20Travel%20or%20Photography%20services."
           target="_blank"
           rel="noreferrer"
           className="w-13 h-13 rounded-full bg-[#25D366] text-black flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform p-3"
