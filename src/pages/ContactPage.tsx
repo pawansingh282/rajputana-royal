@@ -78,8 +78,8 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-neutral-400 font-medium">Direct Helpline</div>
-                    <a href="tel:+911234567890" className="text-sm font-bold text-white hover:text-[#d4af37] transition-colors">
-                      +91 12345 67890
+                    <a href="tel:+917726057101" className="text-sm font-bold text-white hover:text-[#d4af37] transition-colors">
+                      +91 77260 57101
                     </a>
                     <div className="text-[10px] text-[#f3e5ab]">Available 24 Hours • 7 Days a week</div>
                   </div>
