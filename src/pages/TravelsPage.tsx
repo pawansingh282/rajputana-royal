@@ -7,13 +7,9 @@ import {
   Briefcase, 
   ShieldCheck, 
   Fuel, 
-  Gauge, 
   Check, 
-  Calendar, 
-  Phone, 
   Calculator, 
   ArrowRight,
-  Sparkles,
   Route
 } from 'lucide-react';
 import { TravelPackage, Vehicle } from '../types';
@@ -22,11 +18,13 @@ import { ImageWithFallback } from '../components/ImageWithFallback';
 
 interface TravelsPageProps {
   onSelectPackage: (pkg: TravelPackage) => void;
+  onSelectVehicle: (vehicle: Vehicle) => void;
   onOpenBooking: (prefillType?: 'travel', itemTitle?: string) => void;
 }
 
 export const TravelsPage: React.FC<TravelsPageProps> = ({
   onSelectPackage,
+  onSelectVehicle,
   onOpenBooking,
 }) => {
   const [activeTab, setActiveTab] = useState<'fleet' | 'packages' | 'calculator'>('fleet');
@@ -56,7 +54,7 @@ export const TravelsPage: React.FC<TravelsPageProps> = ({
           TRAVELS & <span className="text-gold-gradient">CAR RENTAL</span>
         </h1>
         <p className="text-sm sm:text-base text-neutral-300 max-w-2xl mx-auto font-light leading-relaxed">
-          Premium sanitized fleet, experienced royal Rajasthan chauffeurs, outstation cabs, and all-inclusive holiday itineraries across India.
+          Premium sanitized fleet for comfortable Rajasthan travel, with professional chauffeur service for city rides, outstation trips, sightseeing, and airport transfers.
         </p>
       </section>
 
@@ -106,12 +104,15 @@ export const TravelsPage: React.FC<TravelsPageProps> = ({
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 animate-fadeIn">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {FLEET_VEHICLES.map((vehicle) => (
-              <div
+              <button
                 key={vehicle.id}
-                className="bg-[#121318] border border-[#d4af37]/25 rounded-2xl overflow-hidden hover:border-[#d4af37]/60 transition-all flex flex-col md:flex-row shadow-xl group"
+                type="button"
+                onClick={() => onSelectVehicle(vehicle)}
+                aria-label={`View details for ${vehicle.name}`}
+                className="w-full text-left bg-[#121318] border border-[#d4af37]/40 rounded-2xl overflow-hidden hover:border-[#d4af37] hover:shadow-[0_18px_60px_rgba(212,175,55,0.12)] transition-all flex flex-col shadow-xl group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]"
               >
                 {/* Vehicle Image */}
-                <div className="relative md:w-5/12 h-60 md:h-auto overflow-hidden">
+                <div className="relative h-56 sm:h-64 w-full overflow-hidden">
                   <ImageWithFallback
                     src={vehicle.imageUrl}
                     alt={vehicle.name}
@@ -128,9 +129,9 @@ export const TravelsPage: React.FC<TravelsPageProps> = ({
                 </div>
 
                 {/* Specs & Pricing */}
-                <div className="p-6 md:w-7/12 flex flex-col justify-between space-y-4">
+                <div className="p-5 sm:p-6 w-full flex flex-col justify-between gap-4">
                   <div className="space-y-2">
-                    <h3 className="font-serif-luxury text-lg font-bold text-white group-hover:text-[#f3e5ab] transition-colors">
+                    <h3 className="font-serif-luxury text-xl font-bold text-white group-hover:text-[#f3e5ab] transition-colors">
                       {vehicle.name}
                     </h3>
                     <p className="text-[11px] text-[#d4af37] font-medium">
@@ -158,23 +159,26 @@ export const TravelsPage: React.FC<TravelsPageProps> = ({
                     </div>
 
                     {/* Pricing Pill */}
-                    <div className="p-2.5 rounded-lg bg-[#0b0c10] border border-neutral-800 flex items-center justify-between text-xs">
-                      <div>
-                        <span className="text-[10px] text-neutral-400 block uppercase">Outstation Rate</span>
-                        <span className="font-serif-luxury text-base font-bold text-[#d4af37]">
+                    <div className="grid grid-cols-2 rounded-xl bg-[#0b0c10] border border-[#d4af37]/50 divide-x divide-white/15 text-xs">
+                      <div className="p-3">
+                        <span className="text-[10px] text-neutral-400 block uppercase">Outstation rate</span>
+                        <span className="font-serif-luxury text-lg font-bold text-[#d4af37]">
                           ₹{vehicle.ratePerKm}/KM
                         </span>
                       </div>
-                      <div className="text-right">
+                      <div className="p-3 text-right">
                         <span className="text-[10px] text-neutral-400 block uppercase">Local 8Hr/80KM</span>
-                        <span className="font-serif-luxury text-base font-bold text-white">
+                        <span className="font-serif-luxury text-lg font-bold text-white">
                           ₹{vehicle.local8hr80km.toLocaleString()}
                         </span>
                       </div>
                     </div>
                   </div>
+                  <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#f3e5ab] group-hover:text-[#d4af37]">
+                    View vehicle details <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
 
@@ -219,6 +223,39 @@ export const TravelsPage: React.FC<TravelsPageProps> = ({
               </table>
             </div>
           </div>
+
+          <section className="rounded-2xl border border-[#d4af37]/40 bg-[#121318] px-5 py-7 sm:px-8">
+            <h2 className="mb-6 text-center text-2xl font-bold text-white">
+              Why Choose <span className="text-[#d4af37]">Group of Infinity</span>
+            </h2>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { icon: Users, title: 'Professional chauffeurs', description: 'Experienced, courteous Rajasthan route experts.' },
+                { icon: ShieldCheck, title: 'Sanitized cars', description: 'Hygienic, well-maintained and AC-equipped fleet.' },
+                { icon: Check, title: 'Transparent pricing', description: 'Clear and fair fares with no hidden charges.' },
+                { icon: MapPin, title: 'Local expertise', description: 'Curated travel support and on-ground assistance.' },
+              ].map(({ icon: Icon, title, description }) => (
+                <div key={title} className="flex items-start gap-3 border-white/10 sm:border-r sm:pr-4 last:border-0">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#d4af37]/50 bg-black/30 text-[#d4af37]">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <h3 className="text-sm font-bold text-white">{title}</h3>
+                    <p className="mt-1 text-xs leading-relaxed text-neutral-400">{description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-7 text-center">
+              <button
+                type="button"
+                onClick={() => onOpenBooking('travel', 'Fleet Booking')}
+                className="rounded-xl border border-[#d4af37] px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#f3e5ab] transition hover:bg-[#d4af37] hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]"
+              >
+                Plan your ride
+              </button>
+            </div>
+          </section>
         </section>
       )}
 

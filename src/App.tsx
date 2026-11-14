@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { PageId, PhotographyCategory, PhotoItem, TravelPackage } from './types';
+import { PageId, PhotographyCategory, PhotoItem, TravelPackage, Vehicle } from './types';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
@@ -8,17 +8,19 @@ import { PackageDetailModal } from './components/PackageDetailModal';
 import { HomePage } from './pages/HomePage';
 import { PhotographyPage } from './pages/PhotographyPage';
 import { TravelsPage } from './pages/TravelsPage';
+import { VehicleDetailPage } from './pages/VehicleDetailPage';
 import { FarmingPage } from './pages/FarmingPage';
 import { AboutPage } from './pages/AboutPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { ContactPage } from './pages/ContactPage';
 import { PHOTO_ITEMS } from './data/photographyData';
+import { FLEET_VEHICLES } from './data/travelData';
 import { ArrowUp, MessageCircle, Phone } from 'lucide-react';
 import { ThreePageAnimation } from './components/ThreePageAnimation';
 
 const photographyCategories: PhotographyCategory[] = ['highlights', 'pre-wedding', 'wedding', 'antique-india', 'commercial', 'baby-shoot'];
 
-function resolveRoute(pathname: string): { page: PageId; category: PhotographyCategory } {
+function resolveRoute(pathname: string): { page: PageId; category: PhotographyCategory; vehicleId: string | null } {
   const segments = pathname.split('/').filter(Boolean);
   const route = segments[0]?.toLowerCase();
   const pageByRoute: Record<string, PageId> = {
@@ -39,7 +41,9 @@ function resolveRoute(pathname: string): { page: PageId; category: PhotographyCa
     ? segments[1] as PhotographyCategory
     : 'highlights';
 
-  return { page, category };
+  const vehicleId = page === 'travels' && segments.length > 1 ? segments[1] : null;
+
+  return { page, category, vehicleId };
 }
 
 function routeForPage(page: PageId, category?: PhotographyCategory): string {
@@ -54,6 +58,8 @@ export default function App() {
   const initialRoute = resolveRoute(window.location.pathname);
   const [currentPage, setCurrentPage] = useState<PageId>(initialRoute.page);
   const [activePhotoCategory, setActivePhotoCategory] = useState<PhotographyCategory>(initialRoute.category);
+  const [selectedVehicleId, setSelectedVehicleId] = useState<string | null>(initialRoute.vehicleId);
+  const selectedVehicle = FLEET_VEHICLES.find((vehicle) => vehicle.id === selectedVehicleId) ?? null;
   
   // Modals state
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
@@ -79,6 +85,7 @@ export default function App() {
       const route = resolveRoute(window.location.pathname);
       setCurrentPage(route.page);
       setActivePhotoCategory(route.category);
+      setSelectedVehicleId(route.vehicleId);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
@@ -93,9 +100,18 @@ export default function App() {
       window.history.pushState({}, '', nextPath);
     }
     setCurrentPage(page);
+    setSelectedVehicleId(null);
     if (page === 'photography') {
       setActivePhotoCategory(category ?? 'highlights');
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSelectVehicle = (vehicle: Vehicle) => {
+    const nextPath = `/travel-cars/${encodeURIComponent(vehicle.id)}`;
+    window.history.pushState({}, '', nextPath);
+    setCurrentPage('travels');
+    setSelectedVehicleId(vehicle.id);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -151,10 +167,19 @@ export default function App() {
         )}
 
         {currentPage === 'travels' && (
-          <TravelsPage
-            onSelectPackage={handleSelectPackage}
-            onOpenBooking={handleOpenBooking}
-          />
+          selectedVehicle ? (
+            <VehicleDetailPage
+              vehicle={selectedVehicle}
+              onBack={() => handleNavigate('travels')}
+              onBook={() => handleOpenBooking('travel', selectedVehicle.name)}
+            />
+          ) : (
+            <TravelsPage
+              onSelectPackage={handleSelectPackage}
+              onSelectVehicle={handleSelectVehicle}
+              onOpenBooking={handleOpenBooking}
+            />
+          )
         )}
 
         {(currentPage === 'farming' || currentPage === 'framing') && (
