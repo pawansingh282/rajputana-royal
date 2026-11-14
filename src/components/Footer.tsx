@@ -17,8 +17,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
     <footer id="main-footer" className="relative overflow-hidden bg-[#101315] text-white">
       <section
-        className="relative flex min-h-[280px] items-center bg-cover bg-center px-6 py-12 sm:min-h-[320px] sm:px-10 lg:min-h-[360px] lg:px-[6.25%]"
-        style={{ backgroundImage: "linear-gradient(90deg, rgba(13,17,20,.9) 0%, rgba(13,17,20,.68) 42%, rgba(13,17,20,.06) 100%), url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E0%A4%AE%E0%A5%87%E0%A4%B9%E0%A4%B0%E0%A4%BE%E0%A4%A8%E0%A4%97%E0%A4%A2%E0%A4%BC%20%E0%A4%95%E0%A4%BF%E0%A4%B2%E0%A5%87%20%E0%A4%95%E0%A5%80%20%E0%A4%B8%E0%A4%BE%E0%A4%82%E0%A4%9D%E0%A5%80%20%E0%A4%B0%E0%A5%8B%E0%A4%B6%E0%A4%A8%E0%A5%80-28nmsW5l25kQyqnA0OXQkuO8tq8k58.png')" }}
+        className="relative flex min-h-[280px] items-center bg-cover bg-[center_48%] px-6 py-12 sm:min-h-[320px] sm:px-10 lg:min-h-[360px] lg:px-[6.25%]"
+        style={{ backgroundImage: "linear-gradient(90deg, rgba(13,17,20,.62) 0%, rgba(13,17,20,.34) 38%, rgba(13,17,20,.02) 100%), url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E0%A4%AE%E0%A5%87%E0%A4%B9%E0%A4%B0%E0%A4%BE%E0%A4%A8%E0%A4%97%E0%A4%A2%E0%A4%BC%20%E0%A4%95%E0%A4%BF%E0%A4%B2%E0%A5%87%20%E0%A4%95%E0%A5%80%20%E0%A4%B8%E0%A4%BE%E0%A4%82%E0%A4%9D%E0%A5%80%20%E0%A4%B0%E0%A5%8B%E0%A4%B6%E0%A4%A8%E0%A5%80-TVkDEr70JMj4uX1J7bBu0ha2YjcnZW.png')" }}
       >
         <div className="relative z-10 max-w-xl">
           <h2 className="font-serif-luxury text-4xl leading-[.98] tracking-tight sm:text-5xl">
