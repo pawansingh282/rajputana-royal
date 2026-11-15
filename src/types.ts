@@ -53,7 +53,7 @@ export interface TravelPackage {
 export interface Vehicle {
   id: string;
   name: string;
-  category: 'Luxury SUV' | 'Premium Sedan' | 'Tempo Traveller' | 'Royal Wedding Car';
+  category: 'Hatchback' | 'MPV' | 'Luxury SUV' | 'Premium Sedan' | 'Tempo Traveller' | 'Royal Wedding Car';
   capacity: string;
   luggage: string;
   ac: boolean;
