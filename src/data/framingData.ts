@@ -56,7 +56,7 @@ export const TESTIMONIALS: Testimonial[] = [
     location: 'Delhi NCR',
     service: 'Travels',
     rating: 5,
-    review: 'We booked the Innova Crysta for our 6-day Rajasthan tour from Jodhpur to Jaisalmer & Udaipur. The car was spotless, and chauffeur Rawat Ji knew all hidden food gems and desert spots. Seamless experience!',
+    review: 'We booked a car for our 6-day Rajasthan tour from Jodhpur to Jaisalmer & Udaipur. The vehicle was spotless, and chauffeur Rawat Ji knew all hidden food gems and desert spots. Seamless experience!',
     date: 'February 2026',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
   },

@@ -66,7 +66,7 @@ export const TRAVEL_PACKAGES: TravelPackage[] = [
       { day: 5, title: 'Royal Udaipur Sightseeing & Sunset Boat Ride', description: 'City Palace museum, Saheliyon ki Bari, Jagdish Temple and royal sunset boat ride on Lake Pichola.' },
       { day: 6, title: 'Bagore ki Haveli & Farewell Drop', description: 'Last minute handicraft shopping, memories capture and departure transfer.' },
     ],
-    inclusions: ['Heritage 4-Star Hotel stays + 1 Night Luxury Swiss Desert Tent', 'All Meals at Desert Camp (Dinner + Breakfast)', 'Toyota Innova Crysta throughout trip', 'Camel ride & 4x4 Jeep Dune Bashing', 'Mineral water bottles and professional tour guidance'],
+    inclusions: ['Heritage 4-Star Hotel stays + 1 Night Luxury Swiss Desert Tent', 'All Meals at Desert Camp (Dinner + Breakfast)', 'Private travel vehicle throughout trip', 'Camel ride & 4x4 Jeep Dune Bashing', 'Mineral water bottles and professional tour guidance'],
     exclusions: ['Personal tipping', 'Fort entry camera fees', 'Travel insurance'],
     rating: 5.0,
     reviewsCount: 230,

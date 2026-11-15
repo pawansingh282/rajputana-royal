@@ -91,7 +91,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenBooking 
               <div className="rounded-2xl overflow-hidden border border-[#d4af37]/20 h-40 sm:h-48">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=85"
-                  alt="Luxury Innova Crysta Travel Fleet"
+                  alt="Group of Infinity travel fleet"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -129,7 +129,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenBooking 
               01. Infinity Travels
             </h3>
             <p className="text-xs text-neutral-300 leading-relaxed">
-              Clean sanitized Innova Crysta, Fortuner 4x4, Swift Dzire, and 17-seater Tempo Travellers driven by courteous, verified local chauffeurs who double as your local cultural guides.
+              Clean, sanitized Maruti Suzuki Swift and Maruti Suzuki Ertiga cars, driven by courteous, verified local chauffeurs who also serve as your local cultural guides.
             </p>
             <ul className="space-y-1.5 text-xs text-neutral-400 pt-2 border-t border-neutral-800">
               <li className="flex items-center gap-2">

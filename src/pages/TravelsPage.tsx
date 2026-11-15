@@ -203,8 +203,8 @@ export const TravelsPage: React.FC<TravelsPageProps> = ({
                     <th className="py-3 px-4">Route</th>
                     <th className="py-3 px-4">Distance</th>
                     <th className="py-3 px-4">Est. Time</th>
-                    <th className="py-3 px-4">One-Way Sedan</th>
-                    <th className="py-3 px-4 text-right">Round-Trip SUV</th>
+                    <th className="py-3 px-4">One-Way Swift</th>
+                    <th className="py-3 px-4 text-right">Round-Trip Ertiga</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-800/60 text-neutral-300">

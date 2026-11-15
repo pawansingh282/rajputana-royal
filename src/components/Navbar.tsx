@@ -150,7 +150,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenB
                   </div>
                   <div>
                     <div className="text-white text-xs font-semibold">Car Rental & Fleet</div>
-                    <div className="text-[11px] text-neutral-400">Innova, Fortuner, Sedans, Outstation</div>
+                    <div className="text-[11px] text-neutral-400">Swift, Ertiga & Outstation</div>
                   </div>
                 </button>
                 <button

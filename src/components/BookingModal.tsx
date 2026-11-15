@@ -223,7 +223,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       onChange={(e) => setFormData({ ...formData, selectedVehicle: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded-lg bg-[#0b0c10] border border-[#d4af37]/30 text-white focus:outline-none focus:border-[#d4af37]"
                     >
-                      <option value="">-- Choose Car / Tempo --</option>
+                      <option value="">-- Choose a Vehicle --</option>
                       {FLEET_VEHICLES.map((v) => (
                         <option key={v.id} value={v.name}>
                           {v.name} (from ₹{v.ratePerKm}/km)

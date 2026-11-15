@@ -106,11 +106,11 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </p>
                 </div>
 
-                {/* Preview Image: Toyota Innova Crysta */}
+                {/* Travel vehicle preview */}
                 <div className="relative aspect-[16/10] rounded-xl overflow-hidden border border-white/10 my-3">
                   <img
                     src="/images/card_travels_car.jpg"
-                    alt="Infinity Travels Innova Crysta"
+                    alt="Infinity Travels vehicle"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"
                   />
@@ -258,7 +258,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div className="rounded-2xl overflow-hidden border border-[#d4af37]/30 h-36 sm:h-44">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=85"
-                  alt="Travel Fleet Innova"
+                  alt="Group of Infinity travel vehicle"
                   className="w-full h-full object-cover"
                 />
               </div>
