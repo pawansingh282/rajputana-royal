@@ -123,7 +123,7 @@ export const ContactPage: React.FC = () => {
                   <div>
                     <div className="text-neutral-400 font-medium">Head Office & Creative Studio</div>
                     <div className="text-sm font-bold text-white">
-                      Group of Infinity, Near Clock Tower / Airport Link, Jodhpur, Rajasthan, India - 342001
+                      Ram Nagar, Nayapura, Chokha, Jodhpur, Rajasthan, India
                     </div>
                   </div>
                 </div>
@@ -150,7 +150,7 @@ export const ContactPage: React.FC = () => {
                 <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px]"></div>
                 <div className="relative z-10 text-center space-y-1">
                   <MapPin className="w-8 h-8 text-[#d4af37] mx-auto animate-bounce" />
-                  <div className="text-xs font-bold text-white">Jodhpur, Rajasthan</div>
+                  <div className="text-xs font-bold text-white">Ram Nagar, Nayapura, Chokha, Jodhpur</div>
                   <div className="text-[10px] text-[#d4af37]">Blue City & Desert Gateway</div>
                 </div>
               </div>
