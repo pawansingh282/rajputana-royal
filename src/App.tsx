@@ -81,6 +81,36 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const targets = Array.from(document.querySelectorAll<HTMLElement>('main section, main article, #main-footer'));
+
+    if (reduceMotion) {
+      targets.forEach((element) => element.classList.add('scroll-reveal-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('scroll-reveal-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -48px' },
+    );
+
+    targets.forEach((element, index) => {
+      element.classList.add('scroll-reveal');
+      element.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 90}ms`);
+      observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [currentPage, selectedVehicleId]);
+
+  useEffect(() => {
     const syncRouteFromLocation = () => {
       const route = resolveRoute(window.location.pathname);
       setCurrentPage(route.page);

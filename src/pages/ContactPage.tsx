@@ -109,8 +109,8 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-neutral-400 font-medium">Email Inquiries</div>
-                    <a href="mailto:info@groupofinfinity.art" className="text-sm font-bold text-white hover:text-[#d4af37] transition-colors">
-                      info@groupofinfinity.art
+                    <a href="mailto:grpofinfinity@gmail.com" className="text-sm font-bold text-white hover:text-[#d4af37] transition-colors">
+                      grpofinfinity@gmail.com
                     </a>
                     <div className="text-[10px] text-neutral-400">Response within 2 hours</div>
                   </div>
