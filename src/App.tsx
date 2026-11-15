@@ -82,7 +82,11 @@ export default function App() {
 
   useEffect(() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const targets = Array.from(document.querySelectorAll<HTMLElement>('main section, main article, #main-footer'));
+    const sections = Array.from(document.querySelectorAll<HTMLElement>('main section, #main-footer'));
+    const cards = Array.from(document.querySelectorAll<HTMLElement>(
+      'main article, main [class*="rounded-2xl"], main [class*="rounded-3xl"]',
+    )).filter((element) => !sections.includes(element));
+    const targets = [...sections, ...cards];
 
     if (reduceMotion) {
       targets.forEach((element) => element.classList.add('scroll-reveal-visible'));
@@ -98,12 +102,14 @@ export default function App() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -48px' },
+      { threshold: 0.1, rootMargin: '0px 0px -36px' },
     );
 
     targets.forEach((element, index) => {
-      element.classList.add('scroll-reveal');
-      element.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 90}ms`);
+      const isCard = cards.includes(element);
+      element.classList.add(isCard ? 'scroll-reveal-card' : 'scroll-reveal');
+      element.style.setProperty('--reveal-delay', `${isCard ? (index % 5) * 75 : (index % 3) * 100}ms`);
+      element.style.setProperty('--reveal-x', isCard && index % 2 === 0 ? '-22px' : '22px');
       observer.observe(element);
     });
 
